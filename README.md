@@ -87,14 +87,14 @@ Provide Input:
 
 When prompted, enter the full path to the DOCX file you wish to convert:
 
-pgsql
+bash
 Copy
 Edit
 Enter the full path of the DOCX file: /path/to/your/document.docx
 Conversion Output:
 
 After the conversion is complete, the script will display a message similar to:
-
+bash
 Copy
 Edit
 ✅ Conversion successful! Responsive HTML5 saved at: /path/to/your/document_responsive.html
@@ -123,7 +123,8 @@ License
 This project is licensed under the GNU General Public License v3.0. You are free to use, modify, and distribute this software under the terms of the GNU GPL v3.0. For more details, please see the LICENSE file or visit GNU GPL v3.0.
 
 Contact
-For questions, feedback, or support, please open an issue in this repository or contact the maintainer at [reddyapuru@gmail.com].
+For questions, feedback, or support, please open an issue in this repository or contact the maintainer at [reddyapuru@gmail.com] or www.latest2all.com
+
 
 
 
