@@ -48,10 +48,8 @@
 
    ```bash
    git clone https://github.com/yourusername/docx2html5-responsive-converter.git
-   cd docx2html5-responsive-converter
-Ensure LibreOffice is Installed:
-
-On Linux:
+   cd docx2html5-responsive-converter2. Ensure LibreOffice is Installed
+On Linux
 If LibreOffice is not already installed, run:
 
 bash
@@ -59,11 +57,10 @@ Copy
 Edit
 sudo apt-get update
 sudo apt-get install libreoffice
-On Windows:
+On Windows
 Download and install LibreOffice from the official website.
 
-Update the Configuration:
-
+3. Update the Configuration
 In the libre-docx2html5.py file, adjust the LIBREOFFICE_PATH variable for your operating system:
 
 python
@@ -75,25 +72,23 @@ LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
 # For Linux (uncomment if using Linux):
 # LIBREOFFICE_PATH = r"/usr/bin/libreoffice"
 Usage
-Run the Converter:
-
+1. Run the Converter
 Open a terminal (or Command Prompt on Windows) in the repository directory and execute:
 
 bash
 Copy
 Edit
 python libre-docx2html5.py
-Provide Input:
-
+2. Provide Input
 When prompted, enter the full path to the DOCX file you wish to convert:
 
 bash
 Copy
 Edit
 Enter the full path of the DOCX file: /path/to/your/document.docx
-Conversion Output:
-
+3. Conversion Output
 After the conversion is complete, the script will display a message similar to:
+
 bash
 Copy
 Edit
@@ -101,29 +96,35 @@ Edit
 You can now open the resulting HTML file in your browser.
 
 Customization
-Responsive Styling:
+Responsive Styling
 Modify the CSS within the responsive_head variable in the code to adjust fonts, spacing, and other styles as desired.
 
-Alt Text Extraction:
+Alt Text Extraction
 The tool extracts alt text from <wp:docPr> elements in the DOCX file. You can adjust the behavior in the extract_alt_text_from_docx function if necessary.
 
 Troubleshooting
-LibreOffice Not Found:
+LibreOffice Not Found
 Verify that the LIBREOFFICE_PATH variable is correctly set for your system.
 
-Conversion Failures:
+Conversion Failures
 Check the console output for error messages during conversion. Ensure that:
 
 The DOCX file is not corrupted.
 The LibreOffice CLI is functioning correctly in headless mode.
 Contributing
-Contributions are welcome! Feel free to fork this repository, improve the code, and open pull requests. For major changes, please open an issue first to discuss your ideas.
+Contributions are welcome! Feel free to fork this repository, improve the code, and open pull requests.
+For major changes, please open an issue first to discuss your ideas.
 
 License
-This project is licensed under the GNU General Public License v3.0. You are free to use, modify, and distribute this software under the terms of the GNU GPL v3.0. For more details, please see the LICENSE file or visit GNU GPL v3.0.
+This project is licensed under the GNU General Public License v3.0.
+You are free to use, modify, and distribute this software under the terms of the GNU GPL v3.0.
+For more details, please see the LICENSE file or visit GNU GPL v3.0.
 
 Contact
-For questions, feedback, or support, please open an issue in this repository or contact the maintainer at [reddyapuru@gmail.com] or www.latest2all.com
+For questions, feedback, or support, please open an issue in this repository or contact the maintainer:
+📧 reddyapuru@gmail.com
+🌍 www.latest2all.com
+
 
 
 
