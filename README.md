@@ -49,7 +49,7 @@
    ```bash
    git clone https://github.com/yourusername/docx2html5-responsive-converter.git
    cd docx2html5-responsive-converter2. Ensure LibreOffice is Installed
-On Linux
+2. On Linux
 If LibreOffice is not already installed, run:
 
 ```bash
