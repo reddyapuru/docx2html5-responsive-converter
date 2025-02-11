@@ -95,7 +95,6 @@ Conversion Output:
 
 After the conversion is complete, the script will display a message similar to:
 
-pgsql
 Copy
 Edit
 ✅ Conversion successful! Responsive HTML5 saved at: /path/to/your/document_responsive.html
