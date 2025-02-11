@@ -52,20 +52,16 @@
 On Linux
 If LibreOffice is not already installed, run:
 
-bash
-Copy
-Edit
-sudo apt-get update
-sudo apt-get install libreoffice
+```bash
+  sudo apt-get update
+  sudo apt-get install libreoffice
 On Windows
 Download and install LibreOffice from the official website.
 
 3. Update the Configuration
 In the libre-docx2html5.py file, adjust the LIBREOFFICE_PATH variable for your operating system:
 
-python
-Copy
-Edit
+```python
 # For Windows:
 LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
 
@@ -75,23 +71,17 @@ Usage
 1. Run the Converter
 Open a terminal (or Command Prompt on Windows) in the repository directory and execute:
 
-bash
-Copy
-Edit
+```bash
 python libre-docx2html5.py
 2. Provide Input
 When prompted, enter the full path to the DOCX file you wish to convert:
 
-bash
-Copy
-Edit
+```bash
 Enter the full path of the DOCX file: /path/to/your/document.docx
 3. Conversion Output
 After the conversion is complete, the script will display a message similar to:
 
-bash
-Copy
-Edit
+```bash
 ✅ Conversion successful! Responsive HTML5 saved at: /path/to/your/document_responsive.html
 You can now open the resulting HTML file in your browser.
 
