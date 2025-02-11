@@ -7,13 +7,6 @@ import streamlit as st
 import tempfile
 
 
-# Users who want to install libreoffice using python script can do by running the below commands
-# Update package list
-subprocess.run(["apt-get", "update"], check=True)
-
-# Install LibreOffice
-subprocess.run(["apt-get", "install", "-y", "libreoffice"], check=True)
-
 
 # Hardcoded path for LibreOffice CLI
 LIBREOFFICE_PATH = r"/usr/bin/libreoffice" # for windows PC path is r"C:\Program Files\LibreOffice\program\soffice.exe"
