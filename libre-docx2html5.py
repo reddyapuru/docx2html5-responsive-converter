@@ -3,14 +3,11 @@ import os
 import re
 import zipfile
 import xml.etree.ElementTree as ET
-import streamlit as st
 import tempfile
 
-
-
 # Hardcoded path for LibreOffice CLI
-LIBREOFFICE_PATH = r"/usr/bin/libreoffice" # for windows PC path is r"C:\Program Files\LibreOffice\program\soffice.exe"
-
+LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
+#LIBREOFFICE_PATH = r"/usr/bin/libreoffice" ; this path is in linux os
 def get_namespaces(docx_path):
     """Extracts XML namespaces from document.xml inside a DOCX file."""
     namespaces = {}
@@ -286,30 +283,11 @@ def convert_docx_to_html(docx_path):
             return "❌ Error: Conversion failed. HTML file not created."
     except subprocess.CalledProcessError as e:
         return f"❌ Error during conversion: {e}"
+#def main():
+ # 🚀 **User Input for File Path**
+docx_file = input("Enter the full path of the DOCX file: ").strip()
+result = convert_docx_to_html(docx_file)
+print(result) ; 
 
-def main():
-    st.title("DOCX to HTML5 Converter")
-
-    uploaded_file = st.file_uploader("Upload a DOCX file", type="docx")
-
-    if uploaded_file is not None:
-        st.success("File uploaded successfully!")
-        # Save the uploaded file to a temporary file on disk
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".docx") as tmp:
-            tmp.write(uploaded_file.read())
-            tmp_path = tmp.name
-
-        result = convert_docx_to_html(tmp_path)
-        st.subheader("Conversion Result:")
-        st.write(result)
-        # Provide a download button for the converted HTML file
-        st.download_button(
-            label="Download Converted HTML",
-            data=result,
-            file_name="converted.html",
-            mime="text/html"
-        )
-
-
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+ #   main()
