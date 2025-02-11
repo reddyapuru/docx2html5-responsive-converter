@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+      :root {
+        /* Base font sizes and spacing */
+        --font-base: clamp(0.75rem, 1vw + 0.75rem, 1.25rem);
+        --font-headline: clamp(1.75rem, 4vw, 2.5rem);
+        --spacing-base: clamp(0.5rem, 1vw, 2rem);
+        --line-height-base: 1.5;
+        /* Dynamic vertical spacing (line-height multiplier) */
+        --vertical-spacing: clamp(1.3, 1vw + 1.3, 1.7);
+        
+        /* Fonts */
+        --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --font-secondary: "Segoe UI Black", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      html {
+        font-size: 100%;
+        line-height: var(--line-height-base);
+        font-family: var(--font-primary);
+      }
+      /* iOS-inspired header styling for the page title */
+      header {
+        background: rgba(255, 255, 255, 0.85);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: calc(var(--spacing-base) * 1.5);
+        text-align: center;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      header h1 {
+        margin: 0;
+        font-family: var(--font-secondary);
+        font-size: var(--font-headline);
+        font-weight: 900;
+        letter-spacing: -0.5pt;
+        line-height: 1.3;
+      }
+      @media (min-width: 769px) and (max-width: 1440px) {
+        header h1 { line-height: 1.5; }
+      }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: clamp(1.75rem, 2.8vw + 1rem, 2rem);
+          line-height: clamp(1.4, 1vw + 1.4, 1.7);
+        }
+      }
+      /* Fluid typography for headings and paragraphs */
+      h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      h5 { font-size: clamp(1rem, 2vw, 1.25rem); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      h6 { font-size: clamp(0.9rem, 1.5vw, 1rem); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      p  { font-size: var(--font-base); margin-bottom: var(--spacing-base); line-height: var(--vertical-spacing); }
+      /* Responsive images */
+      img { max-width: 100% !important; height: auto !important; display: block; }
+      .img-line { width: 100% !important; height: auto !important; }
+      /* Container and padding */
+      body { padding: var(--spacing-base); }
+      @media (max-width: 576px) { body { padding: calc(var(--spacing-base) / 2); } }
+      /* Responsive tables */
+      .table-responsive { overflow-x: auto; }
+      .table-responsive table { width: 100%; }
+      /* Footer styling */
+      footer {
+        margin-top: var(--spacing-base);
+        padding: var(--spacing-base);
+        background-color: #f8f9fa;
+        text-align: center;
+        font-size: clamp(0.75rem, 1vw, 1rem);
+      }
+      /* Adapt spacing for extreme screen sizes */
+      @media (max-width: 400px) {
+        :root { --spacing-base: 0.5rem; }
+        header { padding: calc(var(--spacing-base) * 1.2); }
+      }
+      @media (min-width: 2000px) {
+        :root { --spacing-base: 2rem; }
+        header { padding: calc(var(--spacing-base) * 1.5); }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P8LYBP9EDY');
+    </script>
+</head>
+        
+<body class="container" lang="en-US" link="#467886" vlink="#96607d" dir="ltr">
+<div title="header"><p style="line-height: 110%; margin-bottom: 0.28cm">
+	<span class="sd-abs-pos" style="position: absolute; top: -0.71cm; left: -2.14cm; width: 786px"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_39264e59.gif" name="Shape34" alt="Illustration from the document" align="left" hspace="1" vspace="1"/>
+</span><font color="#156082"><font face="Times New Roman, serif"><font size="5" style="font-size: 20pt">Panchatantra
+	story by latest2all.com                   </font></font></font>
+	</p>
+	<p style="line-height: 110%; margin-bottom: 1.17cm"><br/>
+<br/>
+
+	</p>
+</div><p style="letter-spacing: -0.5pt; line-height: 100%; margin-bottom: 0.14cm">
+<font face="Aptos Display, serif"><font size="6" style="font-size: 28pt"><font face="Arial Black, sans-serif"><font size="7" style="font-size: 48pt">The
+Monkey and the Crocodile –Panchatantra Story </font></font></font></font>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape1" alt="Illustration from the document" align="bottom"/>
+</p>
+<h1 class="western"><font face="Verdana, sans-serif"><b>Chapter 1:
+The Unexpected Friendship</b></font></h1>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape2" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Hungry Crocodile</b></font></p>
+<ol>
+	<li><p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+	morning sun had just begun to rise, casting golden rays over the
+	jungle and painting the river in hues of orange and pink. The water
+	rippled gently, reflecting the towering trees that lined its banks.
+	The air was filled with the calls of birds greeting the new day,
+	while a family of deer cautiously bent down to drink from the cool
+	water.</font></p></li>
+	<li><p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Beneath
+	the shimmering surface of the river, </font><font face="Verdana, sans-serif"><b>Kalu,
+	the crocodile</b></font><font face="Verdana, sans-serif">, lay
+	motionless. His large, scaly body blended perfectly with the murky
+	depths, his yellow eyes barely breaking the surface. He had been
+	swimming for hours, searching for food, but luck had not been on his
+	side. The fish had darted away too quickly, and the birds he had
+	hoped to catch had flown off before he could get close.</font></p></li>
+	<li><p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">His
+	</font><font face="Verdana, sans-serif"><b>stomach rumbled</b></font><font face="Verdana, sans-serif">,
+	a deep growl echoing in the quiet water. It had been days since he
+	had had a proper meal, and his strength was beginning to wane. </font><font face="Verdana, sans-serif"><b>He
+	needed food—soon.</b></font></p></li>
+</ol>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+Kalu drifted toward the riverbank, his sharp eyes caught sight of
+something unusual—a </font><font face="Verdana, sans-serif"><b>monkey
+sitting on a tree, happily munching on juicy fruits</b></font><font face="Verdana, sans-serif">.
+His mouth watered as he watched the monkey take a bite of a dark
+purple </font><font face="Verdana, sans-serif"><b>jamun</b></font><font face="Verdana, sans-serif">,
+the juices staining his fingers.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape3" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="A monkey tossing blackberries to a friendly crocodile by the riverbank" src="The-Monkey-and-the-Crocodile_html_ea9335b9.jpg" name="Picture 7" align="bottom" border="0"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape4" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+First Encounter</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Courier New">High
+up in the </font><font face="Courier New"><b>jamun tree</b></font><font face="Courier New">,
+</font><font face="Courier New"><b>Raju</b></font><font face="Courier New">,
+the clever and playful monkey, was having the time of his life. He
+swung effortlessly from branch to branch, stuffing his mouth with the
+</font><font face="Courier New"><b>sweetest jamuns</b></font><font face="Courier New">.
+As he ate, he hummed a happy tune, his brown tail curling around a
+sturdy branch for support.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Courier New">Just
+as he was about to grab another fruit, he heard a deep </font><font face="Courier New"><b>sigh</b></font><font face="Courier New">
+from below. </font><font face="Courier New"><b>Curious, he peered
+down.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">There,
+lying near the water’s edge, was a </font><font face="Verdana, sans-serif"><b>crocodile
+staring up at him</b></font><font face="Verdana, sans-serif">. But
+unlike the dangerous, hungry crocodiles he had seen before, this one
+</font><font face="Verdana, sans-serif"><b>did not look threatening</b></font><font face="Verdana, sans-serif">.
+His eyes were filled with something else—</font><font face="Verdana, sans-serif"><b>sadness
+and exhaustion</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">What’s
+the matter, friend?” Raju called out, tilting his head. “You look
+like a fisherman who lost his net!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+let out a heavy breath. “I haven’t eaten in days,” he admitted.
+“The fish are too fast, and the birds are too clever. I fear I will
+grow too weak to hunt.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+scratched his chin. “Well, that’s a problem, isn’t it?” He
+looked at the </font><font face="Verdana, sans-serif"><b>pile of
+jamuns</b></font><font face="Verdana, sans-serif"> next to him and
+had an idea.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Tell
+me, have you ever tasted a </font><font face="Verdana, sans-serif"><b>jamun</b></font><font face="Verdana, sans-serif">
+before?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+blinked. “A jamun?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Yes!
+They’re the sweetest fruits in the jungle,” Raju said proudly.
+“Here, try one!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">With
+that, he plucked a </font><font face="Verdana, sans-serif"><b>perfectly
+ripe jamun</b></font><font face="Verdana, sans-serif"> and tossed it
+toward Kalu. The crocodile opened his mouth, and the fruit landed on
+his </font><font face="Verdana, sans-serif"><b>rough, scaly tongue</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>bit down</b></font><font face="Verdana, sans-serif">.
+A burst of </font><font face="Verdana, sans-serif"><b>sweetness and
+tartness</b></font><font face="Verdana, sans-serif"> filled his
+mouth. He had never tasted anything like it! His tail </font><font face="Verdana, sans-serif"><b>thumped
+against the riverbank in delight</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">This
+is amazing!” Kalu exclaimed. “So much better than fish!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+chuckled. “See? You don’t always have to hunt to enjoy a good
+meal.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">And
+from that moment on, something wonderful began—</font><font face="Verdana, sans-serif"><b>an
+unexpected friendship</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape5" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>A
+Friendship Grows</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Every
+morning, </font><font face="Verdana, sans-serif"><b>Kalu swam to the
+riverbank</b></font><font face="Verdana, sans-serif">, and Raju
+tossed down the </font><font face="Verdana, sans-serif"><b>freshest
+jamuns</b></font><font face="Verdana, sans-serif">. They would </font><font face="Verdana, sans-serif"><b>talk
+for hours</b></font><font face="Verdana, sans-serif">, laughing and
+sharing stories about their worlds.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">🌿 <font face="Verdana, sans-serif"><b>Raju’s
+World</b></font><font face="Verdana, sans-serif">: The jungle canopy
+was </font><font face="Verdana, sans-serif"><b>his kingdom</b></font><font face="Verdana, sans-serif">.
+He told Kalu how he could </font><font face="Verdana, sans-serif"><b>leap
+between trees</b></font><font face="Verdana, sans-serif">, how he
+played with the birds, and how he could see the entire jungle from
+the </font><font face="Verdana, sans-serif"><b>highest branches</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">🌊 <font face="Verdana, sans-serif"><b>Kalu’s
+World</b></font><font face="Verdana, sans-serif">: The river was </font><font face="Verdana, sans-serif"><b>his
+domain</b></font><font face="Verdana, sans-serif">. He spoke of
+</font><font face="Verdana, sans-serif"><b>hidden caves beneath the
+water</b></font><font face="Verdana, sans-serif">, the </font><font face="Verdana, sans-serif"><b>silent
+movements of the fish</b></font><font face="Verdana, sans-serif">,
+and how he could </font><font face="Verdana, sans-serif"><b>sense the
+vibrations</b></font><font face="Verdana, sans-serif"> of anything
+that entered the river.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">One
+day, Kalu sighed, staring at the blue sky. “You’re lucky, Raju,”
+he said. “You get to see the world from above, while I only see
+what is beneath the water.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+smiled. “Ah, but you are lucky too! You know secrets of the deep
+that I will never see. Every creature has its own world.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+crocodile thought about this and </font><font face="Verdana, sans-serif"><b>nodded
+in agreement</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Their
+</font><font face="Verdana, sans-serif"><b>friendship deepened</b></font><font face="Verdana, sans-serif">,
+and soon, Kalu was no longer just visiting for the jamuns—</font><font face="Verdana, sans-serif"><b>he
+came for the joy of Raju’s company</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape6" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Contrast in Perspectives</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+their bond grew, </font><font face="Verdana, sans-serif"><b>their
+differences became clear</b></font><font face="Verdana, sans-serif">—but
+instead of dividing them, it made their friendship richer.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">🦴 <font face="Verdana, sans-serif"><b>Kalu
+was slow, cautious, and patient</b></font><font face="Verdana, sans-serif">—he
+believed in waiting for opportunities rather than chasing them.<br/>
+</font><font face="Segoe UI Emoji, sans-serif">🐒</font><font face="Verdana, sans-serif">
+</font><font face="Verdana, sans-serif"><b>Raju was quick, impulsive,
+and full of energy</b></font><font face="Verdana, sans-serif">—he
+believed in taking risks and making things happen.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">One
+afternoon, as they rested by the river, Kalu said, “Raju, don’t
+you ever feel afraid living up there in the trees? What if you fall?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+grinned. “And don’t you feel afraid living in the river? What if
+something bigger comes along and eats you?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+blinked. He had never thought of that. “I suppose we both have
+dangers in our worlds,” he admitted.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">But
+that’s what makes life exciting!” Raju said, swinging from a low
+branch. “If we spent all our time being afraid, we’d never live
+at all!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>laughed for the first time
+in weeks</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Their
+</font><font face="Verdana, sans-serif"><b>friendship</b></font><font face="Verdana, sans-serif">
+was something neither of them had expected, and yet, </font><font face="Verdana, sans-serif"><b>it
+was perfect</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape7" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>But
+Trouble Was Coming…</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+the days passed, Kalu’s wife began to </font><font face="Verdana, sans-serif"><b>notice
+his absence</b></font><font face="Verdana, sans-serif">. She had
+heard whispers in the wind about her husband spending time with a
+</font><font face="Verdana, sans-serif"><b>monkey</b></font><font face="Verdana, sans-serif">
+instead of hunting.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">And
+soon, </font><font face="Verdana, sans-serif"><b>jealousy</b></font><font face="Verdana, sans-serif">
+began to creep into her heart.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+would not let this continue.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+had </font><font face="Verdana, sans-serif"><b>a dangerous, wicked
+plan.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape8" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="A female crocodile whispering devious plans to her husband under the moonlight by the river" src="The-Monkey-and-the-Crocodile_html_8774c4a0.jpg" name="Picture 9" align="bottom" border="0"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape9" alt="Illustration from the document" align="bottom"/>
+</p>
+<h1 class="western" style="background: #ffffff"><font color="#ffffff"><font face="Verdana, sans-serif"><span style="background: #92d050">Chapter
+2: The Wicked Plan of the Crocodile’s Wife</span></font></font><font color="#ffffff"><font face="Verdana, sans-serif">
+</font></font>
+</h1>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape10" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Introduction
+to Kalu’s Wife</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Deep
+in the river, beneath the swaying reeds and smooth stones, lived
+</font><font face="Verdana, sans-serif"><b>Meena</b></font><font face="Verdana, sans-serif">,
+Kalu’s wife. She was a </font><font face="Verdana, sans-serif"><b>beautiful
+yet cunning</b></font><font face="Verdana, sans-serif"> crocodile
+with emerald-green scales that shimmered under the water. Unlike
+Kalu, who was gentle and easygoing, </font><font face="Verdana, sans-serif"><b>Meena
+was sharp, ambitious, and filled with a hunger for power</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">For
+days, she had noticed something odd—</font><font face="Verdana, sans-serif"><b>her
+husband was no longer bringing home fresh meat</b></font><font face="Verdana, sans-serif">.
+Instead of hunting, he would </font><font face="Verdana, sans-serif"><b>disappear
+every morning</b></font><font face="Verdana, sans-serif"> and return
+looking </font><font face="Verdana, sans-serif"><b>strangely
+satisfied</b></font><font face="Verdana, sans-serif">, his belly full
+but his jaws free of blood.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">One
+afternoon, as Kalu lazily floated near their rocky riverbank home,
+Meena swam up to him, her golden eyes narrowing.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Kalu,”
+she said sweetly, though there was a sharpness to her voice. “Where
+have you been going every day?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+hesitated. He had never kept secrets from his wife, but something in
+her tone made him uneasy.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">I
+have made a friend,” he admitted. “A monkey who lives in a </font><font face="Verdana, sans-serif"><b>jamun
+tree</b></font><font face="Verdana, sans-serif"> by the river. He
+shares his fruits with me.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena’s
+eyes widened. “A </font><font face="Verdana, sans-serif"><b>monkey</b></font><font face="Verdana, sans-serif">?”
+she repeated, disbelief creeping into her voice. “You, a mighty
+crocodile, have befriended a tree-dweller? And you eat…</font><font face="Verdana, sans-serif"><b>fruits</b></font><font face="Verdana, sans-serif">?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+nodded, a small smile forming. “You wouldn’t believe how
+delicious </font><font face="Verdana, sans-serif"><b>jamuns</b></font><font face="Verdana, sans-serif">
+are, Meena! They’re sweet, juicy, and fill the stomach without any
+need to hunt.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena’s
+</font><font face="Verdana, sans-serif"><b>tail slapped the water in
+frustration</b></font><font face="Verdana, sans-serif">. “You are a
+</font><font face="Verdana, sans-serif"><b>crocodile</b></font><font face="Verdana, sans-serif">,
+Kalu! You were born to rule the river, not to beg for fruits from a
+</font><font face="Verdana, sans-serif"><b>silly monkey</b></font><font face="Verdana, sans-serif">!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+turned away, her mind already racing. </font><font face="Verdana, sans-serif"><b>This
+monkey was a problem.</b></font><font face="Verdana, sans-serif">
+Kalu was growing soft, distracted, and worse—</font><font face="Verdana, sans-serif"><b>he
+was losing his instinct for hunting</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+would not allow it.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape11" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Her
+Desire for Power</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">That
+night, as the moon rose high over the river, Meena lay awake, her
+thoughts swirling like the currents beneath her.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+had heard tales from </font><font face="Verdana, sans-serif"><b>old
+crocodiles</b></font><font face="Verdana, sans-serif"> about how
+</font><font face="Verdana, sans-serif"><b>monkey hearts were
+magical</b></font><font face="Verdana, sans-serif">—filled with
+life, energy, and an otherworldly sweetness that no creature had ever
+tasted.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif"><i>If
+Kalu eats the monkey’s heart,”</i></font><font face="Verdana, sans-serif">
+she thought, </font><font face="Verdana, sans-serif"><i>“he will
+become stronger. He will return to his true nature, and we will rule
+this river as we should.”</i></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+smiled to herself. Yes, this was the answer.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">All
+she had to do was </font><font face="Verdana, sans-serif"><b>make
+Kalu bring the monkey to her.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape12" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="female crocodile whispering devious plans to her husband under the moonlight by the river" src="The-Monkey-and-the-Crocodile_html_168b4496.jpg" name="Picture 10" align="bottom" border="0"/>
+<font face="Verdana, sans-serif"><br/>
+</font><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape13" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Manipulation:
+A Wife’s Trickery</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+next morning, Meena put on her best act. She lay on a </font><font face="Verdana, sans-serif"><b>flat
+rock near the riverbank</b></font><font face="Verdana, sans-serif">,
+letting the sun warm her scales. When Kalu approached, she let out a
+</font><font face="Verdana, sans-serif"><b>weak, pitiful sigh</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+brow furrowed. “What’s wrong, my love?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena
+looked at him with </font><font face="Verdana, sans-serif"><b>tearful
+eyes</b></font><font face="Verdana, sans-serif">. “I… I don’t
+know, Kalu. I feel so weak, so unwell…”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+concern deepened. “What can I do? Tell me, and I’ll get it for
+you!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+hesitated, then whispered, </font><font face="Verdana, sans-serif"><b>“The
+elders say that only the heart of a monkey can cure me.”</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>froze</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">What?”
+he whispered.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena
+sniffed, as if struggling to speak. “They say that a monkey’s
+heart is filled with warmth and energy—eating it will </font><font face="Verdana, sans-serif"><b>heal
+me, make me strong again</b></font><font face="Verdana, sans-serif">.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+heart </font><font face="Verdana, sans-serif"><b>sank</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">But…
+Meena, the monkey is my friend.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena
+</font><font face="Verdana, sans-serif"><b>turned away</b></font><font face="Verdana, sans-serif">,
+her voice trembling. “If you truly love me, Kalu… you will do
+this for me. Or perhaps…” she let her voice quiver, “you don’t
+care for me anymore?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>felt trapped</b></font><font face="Verdana, sans-serif">.
+He loved Meena. He also cared for Raju.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">How
+could he choose?</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">But
+as he looked at Meena, her body lying limp on the rock, he felt his
+heart ache. </font><font face="Verdana, sans-serif"><i>She needs me,</i></font><font face="Verdana, sans-serif">
+he thought. </font><font face="Verdana, sans-serif"><i>I have to do
+this…</i></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">With
+a heavy heart, </font><font face="Verdana, sans-serif"><b>Kalu
+agreed.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape14" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Kalu’s
+Dilemma: A Betrayal in Motion</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+next day, Kalu swam to the </font><font face="Verdana, sans-serif"><b>jamun
+tree</b></font><font face="Verdana, sans-serif"> as usual, but this
+time, </font><font face="Verdana, sans-serif"><b>his heart was heavy</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+greeted him with his usual cheerful voice. “Ah, my friend Kalu!
+Here for your daily jamun feast?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+forced a smile. “Actually, Raju, today I have a surprise for you.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju’s
+ears perked up. “A surprise?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Yes,”
+Kalu said. “You always share your world with me, telling me about
+the </font><font face="Verdana, sans-serif"><b>trees, the sky, and
+the birds</b></font><font face="Verdana, sans-serif">. But I have
+never shown you </font><font face="Verdana, sans-serif"><b>my
+world—the river!</b></font><font face="Verdana, sans-serif">”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju’s
+eyes widened. “You mean… I can visit your home?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+nodded. “Yes! Come with me, and I’ll take you across the river to
+meet my family.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+</font><font face="Verdana, sans-serif"><b>clapped his hands
+excitedly</b></font><font face="Verdana, sans-serif">. “That sounds
+amazing! I’ve always wanted to see what lies beyond the water!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">But
+just as he was about to jump onto Kalu’s back, he paused.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Wait,”
+he said, scratching his chin. “There are no trees in the river, are
+there?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>swallowed hard</b></font><font face="Verdana, sans-serif">.
+“No… but you won’t need them. You’ll be with me.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+hesitated only for a moment before nodding. “Alright, Kalu! Let’s
+go on an adventure!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape15" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>And
+So, the Betrayal Begins…</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+Raju climbed onto Kalu’s back, he could feel the </font><font face="Verdana, sans-serif"><b>cool,
+wet scales beneath his feet</b></font><font face="Verdana, sans-serif">.
+He wrapped his tail around Kalu’s thick neck for balance, and
+together, they </font><font face="Verdana, sans-serif"><b>glided into
+the river</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+water was </font><font face="Verdana, sans-serif"><b>cool and
+calming</b></font><font face="Verdana, sans-serif">, and for the
+first few moments, </font><font face="Verdana, sans-serif"><b>Raju
+was in awe</b></font><font face="Verdana, sans-serif">. He saw </font><font face="Verdana, sans-serif"><b>fish
+swimming in shimmering schools, colorful corals at the bottom, and
+ripples spreading out into infinity</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">This
+is amazing, Kalu!” Raju said, his eyes filled with wonder.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+forced himself to smile. But inside, </font><font face="Verdana, sans-serif"><b>his
+heart was breaking</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Because
+he knew that soon, his friend would </font><font face="Verdana, sans-serif"><b>never
+see this beauty again</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape16" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Coming
+Up Next: Chapter 3 – The Journey Across the River</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+is </font><font face="Verdana, sans-serif"><b>excited about his
+adventure</b></font><font face="Verdana, sans-serif">, unaware of the
+</font><font face="Verdana, sans-serif"><b>danger that lies
+ahead</b></font><font face="Verdana, sans-serif">.<br/>
+Kalu, torn
+between his </font><font face="Verdana, sans-serif"><b>loyalty to
+Meena and friendship with Raju</b></font><font face="Verdana, sans-serif">,
+faces his </font><font face="Verdana, sans-serif"><b>deepest moral
+test</b></font><font face="Verdana, sans-serif">.<br/>
+And soon, </font><font face="Verdana, sans-serif"><b>the
+truth will be revealed in the middle of the river… where there is
+no escape.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape17" alt="Illustration from the document" align="bottom"/>
+</p>
+<h1 class="western">Chapter 3: The Journey Across the River</h1>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape18" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Deception:
+Kalu’s Invitation to the River</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+sun shone bright over the </font><font face="Verdana, sans-serif"><b>lush
+jungle</b></font><font face="Verdana, sans-serif">, its golden rays
+reflecting off the gentle ripples of the </font><font face="Verdana, sans-serif"><b>wide
+river</b></font><font face="Verdana, sans-serif">. Birds flitted from
+branch to branch, their melodious calls filling the air. High up in
+the </font><font face="Verdana, sans-serif"><b>jamun tree</b></font><font face="Verdana, sans-serif">,
+Raju was in his usual spot, happily munching on the </font><font face="Verdana, sans-serif"><b>juiciest
+blackberries</b></font><font face="Verdana, sans-serif"> when he
+heard the familiar splash of water below.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Kalu,
+my friend!” Raju called out cheerfully, waving his tiny hands.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+</font><font face="Verdana, sans-serif"><b>crocodile</b></font><font face="Verdana, sans-serif">,
+however, was not his usual self. Kalu’s </font><font face="Verdana, sans-serif"><b>eyes
+looked heavy</b></font><font face="Verdana, sans-serif">, as if
+carrying the weight of a storm inside. But he forced a smile. Today
+was the day. He had promised Meena he would bring the monkey back.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Raju!”
+Kalu called up, his voice light yet strained. “I have something
+special for you today.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+perked up, his curiosity piqued. “Oh? What is it?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+swam closer, his </font><font face="Verdana, sans-serif"><b>massive
+body gliding smoothly</b></font><font face="Verdana, sans-serif">
+through the water. “You’ve always told me about the beauty of the
+jungle—the sky, the trees, the birds. But I have never shown you </font><font face="Verdana, sans-serif"><b>my
+world</b></font><font face="Verdana, sans-serif">. Today, I want to
+take you across the river, to my home.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju’s
+</font><font face="Verdana, sans-serif"><b>eyes sparkled with
+excitement</b></font><font face="Verdana, sans-serif">. He had spent
+his entire life in the trees, swinging between branches, but he had
+never </font><font face="Verdana, sans-serif"><b>seen the other side
+of the river</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">You
+mean it?” Raju asked, leaning forward on the branch.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+nodded. “Yes! You will meet my family. I want you to see the
+wonders of the </font><font face="Verdana, sans-serif"><b>deep
+river</b></font><font face="Verdana, sans-serif">—the </font><font face="Verdana, sans-serif"><b>hidden
+caves, the dancing fish, and the smooth stones that shine like
+pearls</b></font><font face="Verdana, sans-serif">.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+clapped his hands. “That sounds amazing!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">For
+a brief moment, </font><font face="Verdana, sans-serif"><b>Kalu’s
+heart ached</b></font><font face="Verdana, sans-serif">. This monkey
+truly trusted him. But it was </font><font face="Verdana, sans-serif"><b>too
+late to turn back now</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+</font><font face="Verdana, sans-serif"><b>leaped from the tree</b></font><font face="Verdana, sans-serif">
+and landed gently on Kalu’s </font><font face="Verdana, sans-serif"><b>broad,
+scaly back</b></font><font face="Verdana, sans-serif">. “Let’s
+go, my friend!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape19" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="A monkey riding on a crocodile" src="The-Monkey-and-the-Crocodile_html_2f5f7edc.jpg" name="Picture 23" align="bottom" border="0"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape20" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Monkey’s Excitement</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+</font><font face="Verdana, sans-serif"><b>water was cool</b></font><font face="Verdana, sans-serif">
+against Raju’s fur as Kalu carried him </font><font face="Verdana, sans-serif"><b>effortlessly
+across the river</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">This
+is wonderful, Kalu!” Raju exclaimed. “I never knew the river
+could be so calm and beautiful!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+forced a chuckle. “Yes… it is.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+they glided across the </font><font face="Verdana, sans-serif"><b>deepening
+waters</b></font><font face="Verdana, sans-serif">, Raju leaned over
+to peek into the </font><font face="Verdana, sans-serif"><b>clear
+blue depths</b></font><font face="Verdana, sans-serif">. Schools of
+</font><font face="Verdana, sans-serif"><b>shimmering fish darted
+between the rocks</b></font><font face="Verdana, sans-serif">, their
+scales flashing silver in the sunlight. </font><font face="Verdana, sans-serif"><b>Turtles
+rested on floating logs, blinking lazily</b></font><font face="Verdana, sans-serif">.
+In the distance, he could see the </font><font face="Verdana, sans-serif"><b>opposite
+shore</b></font><font face="Verdana, sans-serif">, lined with tall
+palm trees.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Everything
+felt </font><font face="Verdana, sans-serif"><b>magical</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">You
+never told me your home was so beautiful,” Raju said.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+heart </font><font face="Verdana, sans-serif"><b>sank further</b></font><font face="Verdana, sans-serif">.
+</font><font face="Verdana, sans-serif"><b>How could he betray such a
+friend?</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">He
+paddled forward in </font><font face="Verdana, sans-serif"><b>silence</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape21" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Betrayal Revealed</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Halfway
+across the river, where the water was </font><font face="Verdana, sans-serif"><b>deepest
+and the shore was far away</b></font><font face="Verdana, sans-serif">,
+Kalu </font><font face="Verdana, sans-serif"><b>slowed his pace</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+monkey noticed. “Why are we slowing down?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+took a deep breath. He could </font><font face="Verdana, sans-serif"><b>no
+longer keep the secret</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Raju…”
+Kalu said, his voice heavy. “There’s… something I must tell
+you.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+tilted his head. “What is it, my friend?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+hesitated, but then he spoke the words that would </font><font face="Verdana, sans-serif"><b>change
+everything</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">My
+wife… she is sick. She believes that the only way to </font><font face="Verdana, sans-serif"><b>cure
+her</b></font><font face="Verdana, sans-serif"> is to </font><font face="Verdana, sans-serif"><b>eat
+the heart of a monkey</b></font><font face="Verdana, sans-serif">.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">A
+cold chill ran through Raju’s </font><font face="Verdana, sans-serif"><b>small
+body</b></font><font face="Verdana, sans-serif">. His hands gripped
+Kalu’s </font><font face="Verdana, sans-serif"><b>rough scales</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">What…
+what are you saying, Kalu?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>couldn’t meet his
+friend’s eyes</b></font><font face="Verdana, sans-serif">. “I…
+I am taking you to my home so that my wife can </font><font face="Verdana, sans-serif"><b>eat
+your heart</b></font><font face="Verdana, sans-serif">.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">For
+a moment, </font><font face="Verdana, sans-serif"><b>everything went
+silent</b></font><font face="Verdana, sans-serif">—only the sound
+of the water lapping against Kalu’s back could be heard.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Then,
+Raju </font><font face="Verdana, sans-serif"><b>burst into laughter</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>blinked in confusion</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">What’s
+so funny?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+wiped a tear from his eye. “Oh, Kalu, my poor friend! Why didn’t
+you say so earlier? If you need my heart, we’ll have to go back.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+jaw dropped. “Back? Why?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+grinned. “Because, silly! I don’t carry my heart </font><font face="Verdana, sans-serif"><b>inside
+me</b></font><font face="Verdana, sans-serif">—I keep it </font><font face="Verdana, sans-serif"><b>safely
+hidden in the jamun tree</b></font><font face="Verdana, sans-serif">!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>stared at him</b></font><font face="Verdana, sans-serif">.
+“You… what?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+</font><font face="Verdana, sans-serif"><b>nodded seriously</b></font><font face="Verdana, sans-serif">,
+as if explaining a well-known fact. “Monkeys don’t keep their
+hearts inside them. That would be dangerous! We leave them </font><font face="Verdana, sans-serif"><b>in
+a safe place</b></font><font face="Verdana, sans-serif"> while we
+play.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+</font><font face="Verdana, sans-serif"><b>mind raced</b></font><font face="Verdana, sans-serif">.
+He had never heard of such a thing. Could it be true?</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+leaned forward. “Take me back to the tree, Kalu. I’ll get my
+heart for you.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>hesitated</b></font><font face="Verdana, sans-serif">,
+but then </font><font face="Verdana, sans-serif"><b>turned around</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">They
+began </font><font face="Verdana, sans-serif"><b>swimming back to the
+shore</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape22" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Moment of Realization</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+soon as they </font><font face="Verdana, sans-serif"><b>reached the
+shore</b></font><font face="Verdana, sans-serif">, Raju </font><font face="Verdana, sans-serif"><b>leaped
+off Kalu’s back in a single swift motion</b></font><font face="Verdana, sans-serif">,
+</font><font face="Verdana, sans-serif"><b>scrambling up the jamun
+tree</b></font><font face="Verdana, sans-serif"> before Kalu could
+react.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+looked up. “Well? Where’s your heart?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+</font><font face="Verdana, sans-serif"><b>laughed from above</b></font><font face="Verdana, sans-serif">,
+his tail swaying.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Oh,
+Kalu, you big fool! Who keeps their heart outside their body? </font><font face="Verdana, sans-serif"><b>You
+tried to trick me, but I tricked you first!</b></font><font face="Verdana, sans-serif">”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu’s
+eyes </font><font face="Verdana, sans-serif"><b>widened with shock</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">You…
+you tricked me?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Yes!
+And you deserve it!” Raju crossed his arms. “You betrayed our
+friendship, Kalu. How could you?”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>felt sick with shame</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape23" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Regret of the Crocodile</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>lowered his head</b></font><font face="Verdana, sans-serif">,
+his heavy body sinking slightly into the water.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">I…
+I didn’t want to do it, Raju,” he whispered. “But Meena—she—she
+made me believe I had no choice.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+shook his head. “There is </font><font face="Verdana, sans-serif"><b>always</b></font><font face="Verdana, sans-serif">
+a choice, Kalu. A real friend would never put another in danger.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+sighed. “I… I understand now.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">For
+a moment, they </font><font face="Verdana, sans-serif"><b>stood in
+silence</b></font><font face="Verdana, sans-serif">, the bond of
+their friendship </font><font face="Verdana, sans-serif"><b>forever
+changed</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Finally,
+Kalu </font><font face="Verdana, sans-serif"><b>turned away</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">I
+will leave now, Raju,” he said. “I don’t deserve your
+friendship.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">He
+swam slowly back into the </font><font face="Verdana, sans-serif"><b>deep
+waters</b></font><font face="Verdana, sans-serif">, his heart </font><font face="Verdana, sans-serif"><b>heavier
+than ever</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+watched him go. </font><font face="Verdana, sans-serif"><b>He was
+sad, but he had learned a lesson too</b></font><font face="Verdana, sans-serif">—</font><font face="Verdana, sans-serif"><b>not
+everyone who smiles at you is truly your friend.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape24" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Coming
+Up Next: Chapter 4 – The Great Escape and the Lesson Learned</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">✅ <font face="Verdana, sans-serif"><b>Raju
+has outwitted Kalu, but will Kalu find redemption?</b></font><font face="Verdana, sans-serif"><br/>
+</font><font face="Segoe UI Emoji, sans-serif">✅</font><font face="Verdana, sans-serif">
+</font><font face="Verdana, sans-serif"><b>Meena is waiting—what
+will she do when Kalu returns empty-handed?</b></font><font face="Verdana, sans-serif"><br/>
+</font><font face="Segoe UI Emoji, sans-serif">✅</font><font face="Verdana, sans-serif">
+</font><font face="Verdana, sans-serif"><b>A final lesson in trust,
+betrayal, and wisdom awaits.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape25" alt="Illustration from the document" align="bottom"/>
+</p>
+<h1 class="western">Chapter 4: The Great Escape and the Lesson
+Learned</h1>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape26" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Return to the Tree: A Clever Escape</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+</font><font face="Verdana, sans-serif"><b>Kalu swam away</b></font><font face="Verdana, sans-serif">,
+his body felt heavier than ever. He had </font><font face="Verdana, sans-serif"><b>failed
+his wife</b></font><font face="Verdana, sans-serif"> and </font><font face="Verdana, sans-serif"><b>betrayed
+his friend</b></font><font face="Verdana, sans-serif">, all in the
+same moment.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meanwhile,
+</font><font face="Verdana, sans-serif"><b>Raju sat high in his jamun
+tree</b></font><font face="Verdana, sans-serif">, watching the
+crocodile drift away. His heart still raced from the </font><font face="Verdana, sans-serif"><b>close
+escape</b></font><font face="Verdana, sans-serif">, but he knew he
+had </font><font face="Verdana, sans-serif"><b>learned a valuable
+lesson</b></font><font face="Verdana, sans-serif">—</font><font face="Verdana, sans-serif"><b>trust
+is not something to be given freely; it must be earned.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+plucked a ripe </font><font face="Verdana, sans-serif"><b>jamun</b></font><font face="Verdana, sans-serif">
+and tossed it into his mouth. The sweetness was comforting, yet his
+mind remained troubled. Could he ever trust Kalu again?</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu,
+on the other hand, felt </font><font face="Verdana, sans-serif"><b>empty</b></font><font face="Verdana, sans-serif">.
+He had </font><font face="Verdana, sans-serif"><b>followed his wife’s
+demands, but at what cost?</b></font><font face="Verdana, sans-serif">
+He had lost something far more valuable than a meal—he had lost a
+friend.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape27" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="A monkey sitting on a tall tree branch, looking down at a regretful crocodile near the riverbank" src="The-Monkey-and-the-Crocodile_html_139ae7bf.png" name="Picture 22" align="bottom" border="0"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape28" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Meena’s
+Anger: A Crocodile’s Shame</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">When
+</font><font face="Verdana, sans-serif"><b>Kalu finally reached the
+riverbank</b></font><font face="Verdana, sans-serif">, Meena was
+already waiting.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">She
+</font><font face="Verdana, sans-serif"><b>rushed to him</b></font><font face="Verdana, sans-serif">,
+her golden eyes glinting. “Where is the monkey?” she demanded.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+lowered his head, his </font><font face="Verdana, sans-serif"><b>massive
+tail dragging against the mud</b></font><font face="Verdana, sans-serif">.
+“I… I couldn’t do it, Meena.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena’s
+</font><font face="Verdana, sans-serif"><b>expression darkened</b></font><font face="Verdana, sans-serif">.
+“Couldn’t do it? After everything I told you? You had him! You
+had him in the </font><font face="Verdana, sans-serif"><b>middle of
+the river</b></font><font face="Verdana, sans-serif">, where he had
+no escape!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+sighed. “He </font><font face="Verdana, sans-serif"><b>tricked me,
+Meena</b></font><font face="Verdana, sans-serif">. And now I see the
+truth—he is not just </font><font face="Verdana, sans-serif"><b>food</b></font><font face="Verdana, sans-serif">.
+He is my friend.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Meena
+</font><font face="Verdana, sans-serif"><b>hissed in frustration</b></font><font face="Verdana, sans-serif">.
+“A friend? You’re a fool, Kalu! A crocodile has no friends! We
+rule by strength, not by kindness!”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">But
+Kalu </font><font face="Verdana, sans-serif"><b>had changed</b></font><font face="Verdana, sans-serif">.
+He </font><font face="Verdana, sans-serif"><b>no longer believed in
+her cruel words</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Maybe
+that’s why we live alone, Meena,” he said softly. “Because we
+</font><font face="Verdana, sans-serif"><b>push everyone away</b></font><font face="Verdana, sans-serif">.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">For
+the first time, Meena had </font><font face="Verdana, sans-serif"><b>no
+response</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">With
+a heavy heart, Kalu </font><font face="Verdana, sans-serif"><b>turned
+away from her</b></font><font face="Verdana, sans-serif">, swimming
+slowly back into the </font><font face="Verdana, sans-serif"><b>depths
+of the river</b></font><font face="Verdana, sans-serif">. He had lost
+a friend—but perhaps, in doing so, he had </font><font face="Verdana, sans-serif"><b>gained
+wisdom.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape29" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>The
+Monkey’s Final Words of Wisdom</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Back
+in the </font><font face="Verdana, sans-serif"><b>jamun tree</b></font><font face="Verdana, sans-serif">,
+Raju felt </font><font face="Verdana, sans-serif"><b>a strange
+sadness</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+had </font><font face="Verdana, sans-serif"><b>betrayed him</b></font><font face="Verdana, sans-serif">,
+but he also knew that </font><font face="Verdana, sans-serif"><b>Kalu
+had been pressured</b></font><font face="Verdana, sans-serif"> by
+someone else. Would Kalu ever be the same again?</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+next morning, </font><font face="Verdana, sans-serif"><b>Kalu
+returned to the riverbank</b></font><font face="Verdana, sans-serif">,
+but he did not </font><font face="Verdana, sans-serif"><b>call for
+Raju</b></font><font face="Verdana, sans-serif"> like he used to. He
+simply </font><font face="Verdana, sans-serif"><b>lay in the water,
+staring at the sky</b></font><font face="Verdana, sans-serif">, deep
+in thought.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+saw him but </font><font face="Verdana, sans-serif"><b>said nothing
+at first</b></font><font face="Verdana, sans-serif">. Then, after a
+long moment, he finally spoke:</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm">“<font face="Verdana, sans-serif">Kalu,
+a true friend would never have put me in danger. You broke my trust.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+</font><font face="Verdana, sans-serif"><b>nodded solemnly</b></font><font face="Verdana, sans-serif">.
+“I know, Raju. And I will regret it forever.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+sighed. “Perhaps one day, we will be friends again. But not today.”</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+didn’t argue. He </font><font face="Verdana, sans-serif"><b>understood</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">He
+had learned his lesson—</font><font face="Verdana, sans-serif"><b>trust,
+once broken, is not easily repaired.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">With
+that, Raju turned away, climbing higher into his tree.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">And
+</font><font face="Verdana, sans-serif"><b>Kalu slowly swam back into
+the river</b></font><font face="Verdana, sans-serif">, disappearing
+into its </font><font face="Verdana, sans-serif"><b>silent depths</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape30" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-fluid" alt="A monkey sitting on a tree, watching a crocodile swim away under a golden sunset" src="The-Monkey-and-the-Crocodile_html_12d509d8.jpg" name="Picture 20" align="bottom" border="0"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape31" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Conclusion:
+The End with a Twist</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">The
+</font><font face="Verdana, sans-serif"><b>jungle remained the
+same</b></font><font face="Verdana, sans-serif">—the river still
+flowed, the trees still swayed, and the animals still lived their
+lives.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">But
+something </font><font face="Verdana, sans-serif"><b>had changed
+forever</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Raju
+had </font><font face="Verdana, sans-serif"><b>become wiser</b></font><font face="Verdana, sans-serif">.
+He now </font><font face="Verdana, sans-serif"><b>knew whom to trust
+and whom to keep at a distance</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">Kalu
+had </font><font face="Verdana, sans-serif"><b>learned a painful
+truth</b></font><font face="Verdana, sans-serif">—</font><font face="Verdana, sans-serif"><b>friendship
+is worth more than fear</b></font><font face="Verdana, sans-serif">.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">As
+the </font><font face="Verdana, sans-serif"><b>sun dipped below the
+horizon</b></font><font face="Verdana, sans-serif">, the jungle
+whispered its ancient songs, and the river swallowed its secrets once
+more.</font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif">And
+in the </font><font face="Verdana, sans-serif"><b>heart of the jamun
+tree</b></font><font face="Verdana, sans-serif">, a clever monkey
+sat, watching the world with </font><font face="Verdana, sans-serif"><b>newfound
+wisdom.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape32" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><font face="Verdana, sans-serif"><b>Moral
+of the Story</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm; background: #92d050">
+✅ <font face="Verdana, sans-serif"><b>Trust is earned, not given
+freely.</b></font><font face="Verdana, sans-serif"><br/>
+</font><font face="Segoe UI Emoji, sans-serif">✅</font><font face="Verdana, sans-serif">
+</font><font face="Verdana, sans-serif"><b>A true friend never puts
+another in danger.</b></font><font face="Verdana, sans-serif"><br/>
+</font><font face="Segoe UI Emoji, sans-serif">✅</font><font face="Verdana, sans-serif">
+</font><font face="Verdana, sans-serif"><b>Wisdom and wit can save us
+from betrayal.</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm; background: #92d050">
+<font face="Verdana, sans-serif"><b>Refer </b></font><font color="#467886"><u><a href="https://www.latest2all.com/"><font face="Verdana, sans-serif"><b>our
+website</b></font></a></u></font><font face="Verdana, sans-serif"><b>
+for more information</b></font></p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><img class="img-line img-fluid" src="The-Monkey-and-the-Crocodile_html_f0f1f88b.gif" name="Shape33" alt="Illustration from the document" align="bottom"/>
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm"><br/>
+<br/>
+
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm; background: #92d050">
+           To go back to the list, click
+<font color="#467886"><u><a href="https://www.latest2all.com/all-stories.html"><font face="Verdana, sans-serif">https://www.latest2all.com/all-stories.html</font></a></u></font>
+              
+</p>
+<p style="line-height: 116%; margin-bottom: 0.28cm; background: #92d050">
+© 2025 <font color="#467886"><u><a href="https://www.latest2all.com/"><font face="Verdana, sans-serif">https://www.latest2all.com</font></a></u></font>
+ 	Stay tuned for latest updates with us.</p>
+<div title="footer"><p style="line-height: 100%; margin-top: 1.17cm; margin-bottom: 0cm">
+	<span lang="en-IN">Dedicated to Bharat by latest2all.com</span></p>
+</div>
+
+        <footer>
+            <hr>
+            <p>© 2025 www.latest2all.com</p>
+        </footer>
+        </body>
+</html>
