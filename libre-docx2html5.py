@@ -3,6 +3,7 @@ import os
 import re
 import zipfile
 import xml.etree.ElementTree as ET
+import streamlit as st
 
 # Hardcoded path for LibreOffice CLI
 LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
@@ -294,6 +295,22 @@ def optimize_html(html_file, alt_texts):
         return f"❌ Error processing HTML file: {e}" 
 
 # 🚀 **User Input for File Path**
-docx_file = input("Enter the full path of the DOCX file: ").strip()
-result = convert_docx_to_html(docx_file)
-print(result)
+#docx_file = input("Enter the full path of the DOCX file: ").strip()
+#result = convert_docx_to_html(docx_file)
+#print(result)
+def main():
+
+    st.title("DOCX to HTML5 Converter")
+
+    uploaded_file = st.file_uploader("Upload a DOCX file", type="docx")
+
+    if uploaded_file is not None:
+        st.success("File uploaded successfully!")
+        html_content = convert_docx_to_html(uploaded_file)
+        st.subheader("Converted HTML5:")
+        st.code(html_content, language='html5')
+
+if __name__ == "__main__":
+    main()
+
+
