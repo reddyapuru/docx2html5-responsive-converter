@@ -9,10 +9,10 @@ import tempfile
 
 # Users who want to install libreoffice using python script can do by running the below commands
 # Update package list
-subprocess.run(["sudo", "apt-get", "update"], check=True)
+subprocess.run(["apt-get", "update"], check=True)
 
 # Install LibreOffice
-subprocess.run(["sudo", "apt-get", "install", "-y", "libreoffice"], check=True)
+subprocess.run(["apt-get", "install", "-y", "libreoffice"], check=True)
 
 
 # Hardcoded path for LibreOffice CLI
