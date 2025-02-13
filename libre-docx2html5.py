@@ -6,8 +6,8 @@ import xml.etree.ElementTree as ET
 import tempfile
 
 # Hardcoded path for LibreOffice CLI
-LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
-#LIBREOFFICE_PATH = r"/usr/bin/libreoffice" ; this path is in linux os
+#LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
+LIBREOFFICE_PATH = r"/usr/bin/libreoffice" ; this path is in linux os
 def get_namespaces(docx_path):
     """Extracts XML namespaces from document.xml inside a DOCX file."""
     namespaces = {}
