@@ -1,0 +1,6 @@
+# System Dependencies (install these via your OS package manager):
+#   LibreOffice (e.g., on Ubuntu: sudo apt-get install libreoffice)
+#
+# Python Dependencies:
+Flask==2.2.3
+gunicorn==20.1.0
