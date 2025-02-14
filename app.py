@@ -23,12 +23,14 @@ def allowed_file(filename):
 def get_namespaces(docx_path):
     """Extracts XML namespaces from document.xml inside a DOCX file."""
     namespaces = {}
+    print("Starting namespace extraction...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             for event, elem in ET.iterparse(docx_zip.open('word/document.xml'), events=['start-ns']):
                 namespaces[elem[0]] = elem[1]
     except Exception as e:
         print(f"⚠ Warning: Could not extract namespaces - {e}")
+    print("Namespace extraction completed.")
     return namespaces
 
 def extract_alt_text_from_docx(docx_path):
@@ -37,7 +39,7 @@ def extract_alt_text_from_docx(docx_path):
     mapping the image's 'name' (as defined in <wp:docPr>) to its alt text.
     """
     alt_texts = {}
-
+    print("Starting extraction of alternative text from DOCX...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             xml_content = docx_zip.read('word/document.xml')
@@ -48,7 +50,7 @@ def extract_alt_text_from_docx(docx_path):
             namespaces = get_namespaces(docx_path)
             wp_ns = namespaces.get('wp', 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing')
 
-            print("\n🔍 Extracting Alt Texts from <wp:docPr> elements...")
+            print("Extracting alt texts from <wp:docPr> elements...")
             for docPr in root.findall(f'.//{{{wp_ns}}}docPr'):
                 alt_text = docPr.attrib.get('descr', '').strip()
                 image_name = docPr.attrib.get('name', '').strip()
@@ -63,12 +65,15 @@ def extract_alt_text_from_docx(docx_path):
 
     if not alt_texts:
         print("❌ No alt texts were extracted.")
+    else:
+        print("Alt text extraction completed.")
     return alt_texts
 
 def optimize_html(html_file, alt_texts):
     """
     Cleans and optimizes the LibreOffice-generated HTML for responsiveness.
     """
+    print("Starting HTML optimization...")
     if not html_file.lower().endswith(".html"):
         return f"❌ Error: The provided file is not an HTML file: {html_file}"
 
@@ -164,15 +169,19 @@ def optimize_html(html_file, alt_texts):
         
         with open(html_file, "w", encoding="utf-8") as file:
             file.write(html_content)
+        print("HTML optimization completed.")
         return html_file
 
     except Exception as e:
-        return f"❌ Error processing HTML file: {e}"
+        error_message = f"❌ Error processing HTML file: {e}"
+        print(error_message)
+        return error_message
 
 def extract_images_from_docx(docx_path, destination_folder):
     """
     Extracts images from the DOCX file's word/media folder into destination_folder.
     """
+    print("Starting image extraction...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             for file in docx_zip.namelist():
@@ -185,11 +194,13 @@ def extract_images_from_docx(docx_path, destination_folder):
                         print(f"Extracted image: {filename}")
     except Exception as e:
         print(f"⚠ Error extracting images: {e}")
+    print("Image extraction completed.")
 
 def package_conversion(docx_path, responsive_html_file):
     """
     Extracts images from the DOCX and packages the responsive HTML and images folder into a ZIP file.
     """
+    print("Starting packaging of conversion results...")
     output_dir = os.path.dirname(responsive_html_file)
     images_dir = os.path.join(output_dir, "images")
     os.makedirs(images_dir, exist_ok=True)
@@ -197,11 +208,11 @@ def package_conversion(docx_path, responsive_html_file):
     # Extract images from the DOCX file
     extract_images_from_docx(docx_path, images_dir)
     
-    # Update the HTML file to reference the 'images' folder for any image sources not starting with http or images/
+    # Update the HTML file to reference the 'images' folder for image sources
     with open(responsive_html_file, "r", encoding="utf-8") as f:
         html_content = f.read()
     updated_html = re.sub(
-        r'src="(?!http)(?!images/)([^"]+)"',
+        r'src="(?!images/)(?:media/)?([^"]+)"',
         lambda m: f'src="images/{os.path.basename(m.group(1))}"',
         html_content
     )
@@ -213,12 +224,13 @@ def package_conversion(docx_path, responsive_html_file):
     with zipfile.ZipFile(zip_filename, 'w') as zipf:
         # Add the responsive HTML file
         zipf.write(responsive_html_file, arcname=os.path.basename(responsive_html_file))
-        # Add images
+        # Add images folder
         for root, _, files in os.walk(images_dir):
             for file in files:
                 full_path = os.path.join(root, file)
                 arcname = os.path.join("images", file)
                 zipf.write(full_path, arcname=arcname)
+    print(f"Packaging completed. Package file: {zip_filename}")
     return zip_filename
 
 def convert_docx_to_html(docx_path):
@@ -226,11 +238,16 @@ def convert_docx_to_html(docx_path):
     Converts a DOCX file to HTML using LibreOffice CLI in headless mode,
     then optimizes the HTML and packages it with extracted images.
     """
+    print("Starting DOCX to HTML conversion...")
     if not os.path.exists(docx_path):
-        return f"❌ Error: File '{docx_path}' not found."
+        error_message = f"❌ Error: File '{docx_path}' not found."
+        print(error_message)
+        return error_message
 
     if not os.path.exists(LIBREOFFICE_PATH):
-        return f"❌ Error: LibreOffice not found at '{LIBREOFFICE_PATH}'."
+        error_message = f"❌ Error: LibreOffice not found at '{LIBREOFFICE_PATH}'."
+        print(error_message)
+        return error_message
 
     output_dir = os.path.dirname(docx_path)
     alt_texts = extract_alt_text_from_docx(docx_path)
@@ -239,17 +256,24 @@ def convert_docx_to_html(docx_path):
     ]
     
     try:
+        print("Running LibreOffice for conversion...")
         subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print("LibreOffice conversion completed.")
         html_file = os.path.join(output_dir, os.path.basename(docx_path).replace(".docx", ".html"))
         if os.path.exists(html_file):
             optimized_html_file = optimize_html(html_file, alt_texts)
             # Package the HTML and images into a zip file
             package_file = package_conversion(docx_path, optimized_html_file)
+            print("DOCX conversion and packaging completed successfully.")
             return package_file  # Return the path to the zip file
         else:
-            return "❌ Error: Conversion failed. HTML file not created."
+            error_message = "❌ Error: Conversion failed. HTML file not created."
+            print(error_message)
+            return error_message
     except subprocess.CalledProcessError as e:
-        return f"❌ Error during conversion: {e}"
+        error_message = f"❌ Error during conversion: {e}"
+        print(error_message)
+        return error_message
 
 # Flask Routes
 @app.route("/", methods=["GET"])
@@ -301,12 +325,14 @@ def convert():
         upload_dir = tempfile.mkdtemp()
         file_path = os.path.join(upload_dir, filename)
         file.save(file_path)
+        print(f"File saved to: {file_path}")
 
         result = convert_docx_to_html(file_path)
         if result.startswith("❌"):
             flash(result)
             return redirect(url_for("index"))
         else:
+            print(f"Conversion package created: {result}")
             # Send the resulting zip file for download
             return send_file(result, as_attachment=True)
     else:
@@ -314,4 +340,5 @@ def convert():
         return redirect(url_for("index"))
 
 if __name__ == "__main__":
+    print("Starting DOCX to HTML Converter Flask app...")
     app.run(host="0.0.0.0", port=8000, debug=True)
