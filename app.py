@@ -49,7 +49,6 @@ def extract_alt_text_from_docx(docx_path):
             wp_ns = namespaces.get('wp', 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing')
 
             print("\n🔍 Extracting Alt Texts from <wp:docPr> elements...")
-            # Use the 'name' attribute (present in both DOCX and HTML) as the key
             for docPr in root.findall(f'.//{{{wp_ns}}}docPr'):
                 alt_text = docPr.attrib.get('descr', '').strip()
                 image_name = docPr.attrib.get('name', '').strip()
@@ -122,7 +121,7 @@ def optimize_html(html_file, alt_texts):
         # Remove fixed width and height attributes from <img> tags
         html_content = re.sub(r'\s*(width|height)="[^"]*"', '', html_content)
 
-        # Ensure images have correct alt text and responsiveness
+        # Update image tags: add alt attribute and Bootstrap responsive classes
         def add_alt_attribute(match):
             img_tag = match.group(0)
             name_match = re.search(r'name="([^"]+)"', img_tag)
@@ -162,17 +161,70 @@ def optimize_html(html_file, alt_texts):
         </footer>
         """
         html_content = re.sub(r'</body>', footer_banner + '</body>', html_content, flags=re.IGNORECASE)
-        cleaned_html_file = html_file.replace(".html", "_responsive.html")
-        with open(cleaned_html_file, "w", encoding="utf-8") as file:
+        
+        with open(html_file, "w", encoding="utf-8") as file:
             file.write(html_content)
-        return cleaned_html_file
+        return html_file
 
     except Exception as e:
         return f"❌ Error processing HTML file: {e}"
 
+def extract_images_from_docx(docx_path, destination_folder):
+    """
+    Extracts images from the DOCX file's word/media folder into destination_folder.
+    """
+    try:
+        with zipfile.ZipFile(docx_path, 'r') as docx_zip:
+            for file in docx_zip.namelist():
+                if file.startswith("word/media/"):
+                    filename = os.path.basename(file)
+                    if filename:
+                        dest_path = os.path.join(destination_folder, filename)
+                        with open(dest_path, "wb") as f:
+                            f.write(docx_zip.read(file))
+                        print(f"Extracted image: {filename}")
+    except Exception as e:
+        print(f"⚠ Error extracting images: {e}")
+
+def package_conversion(docx_path, responsive_html_file):
+    """
+    Extracts images from the DOCX and packages the responsive HTML and images folder into a ZIP file.
+    """
+    output_dir = os.path.dirname(responsive_html_file)
+    images_dir = os.path.join(output_dir, "images")
+    os.makedirs(images_dir, exist_ok=True)
+    
+    # Extract images from the DOCX file
+    extract_images_from_docx(docx_path, images_dir)
+    
+    # Update the HTML file to reference the 'images' folder for any image sources not starting with http or images/
+    with open(responsive_html_file, "r", encoding="utf-8") as f:
+        html_content = f.read()
+    updated_html = re.sub(
+        r'src="(?!http)(?!images/)([^"]+)"',
+        lambda m: f'src="images/{os.path.basename(m.group(1))}"',
+        html_content
+    )
+    with open(responsive_html_file, "w", encoding="utf-8") as f:
+        f.write(updated_html)
+    
+    # Create a ZIP file containing the HTML and the images folder
+    zip_filename = responsive_html_file.replace("_responsive.html", "_package.zip")
+    with zipfile.ZipFile(zip_filename, 'w') as zipf:
+        # Add the responsive HTML file
+        zipf.write(responsive_html_file, arcname=os.path.basename(responsive_html_file))
+        # Add images
+        for root, _, files in os.walk(images_dir):
+            for file in files:
+                full_path = os.path.join(root, file)
+                arcname = os.path.join("images", file)
+                zipf.write(full_path, arcname=arcname)
+    return zip_filename
+
 def convert_docx_to_html(docx_path):
     """
-    Converts a DOCX file to HTML using LibreOffice CLI in headless mode.
+    Converts a DOCX file to HTML using LibreOffice CLI in headless mode,
+    then optimizes the HTML and packages it with extracted images.
     """
     if not os.path.exists(docx_path):
         return f"❌ Error: File '{docx_path}' not found."
@@ -190,8 +242,10 @@ def convert_docx_to_html(docx_path):
         subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         html_file = os.path.join(output_dir, os.path.basename(docx_path).replace(".docx", ".html"))
         if os.path.exists(html_file):
-            responsive_html_file = optimize_html(html_file, alt_texts)
-            return responsive_html_file  # Return the path to the responsive HTML file
+            optimized_html_file = optimize_html(html_file, alt_texts)
+            # Package the HTML and images into a zip file
+            package_file = package_conversion(docx_path, optimized_html_file)
+            return package_file  # Return the path to the zip file
         else:
             return "❌ Error: Conversion failed. HTML file not created."
     except subprocess.CalledProcessError as e:
@@ -253,7 +307,7 @@ def convert():
             flash(result)
             return redirect(url_for("index"))
         else:
-            # Send the resulting responsive HTML file for download
+            # Send the resulting zip file for download
             return send_file(result, as_attachment=True)
     else:
         flash("Invalid file format. Please upload a DOCX file.")
