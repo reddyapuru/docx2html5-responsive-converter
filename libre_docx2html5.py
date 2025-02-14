@@ -11,9 +11,9 @@ import shutil
 from lxml import html  # requires lxml package
 
 # Hardcoded path for LibreOffice CLI (adjust for your platform)
-LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
+#LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
 # For Linux, you would use:
-# LIBREOFFICE_PATH = r"/usr/bin/libreoffice"
+LIBREOFFICE_PATH = r"/usr/bin/libreoffice"
 
 def get_namespaces(docx_path):
     """Extracts XML namespaces from document.xml inside a DOCX file."""
