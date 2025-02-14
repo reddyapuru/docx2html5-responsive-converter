@@ -80,15 +80,15 @@ UPLOAD_FORM = """
     </script>
   </head>
   <body>
-    <header>
-      <h1>Welcome to Latest2All DOCX2HTML5 Converter</h1>
-      <p>Effortlessly convert your DOCX files into responsive HTML with images.</p>
-      <p>
-        To use this tool, simply upload your DOCX file below. The converter extracts and optimizes the content—including images—and packages everything into a ZIP file ready for download. 
-        Your package will be available immediately and will be automatically deleted after 10 minutes.
-      </p>
-      <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a> &copy; 2025</p>
-    </header>
+<header>
+  <h1>Welcome to Latest2All DOCX2HTML5 Converter</h1>
+  <p>Effortlessly convert your DOCX files into a fully responsive HTML file with optimized images.</p>
+  <p>
+    To use this tool, simply upload your DOCX file below. Our converter extracts and optimizes the content—including images—and packages everything into a ZIP file. 
+    The final output is a responsive HTML file designed to look great on any device, ready for immediate download. Your package will be automatically deleted after 10 minutes.
+  </p>
+  <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a> &copy; 2025</p>
+</header>
     <h1>DOCX to Responsive HTML Converter</h1>
     <p>
       Convert your DOCX files into fully responsive HTML with images packaged in a ZIP file.
