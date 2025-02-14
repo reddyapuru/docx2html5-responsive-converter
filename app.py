@@ -23,7 +23,7 @@ def allowed_file(filename):
 def get_namespaces(docx_path):
     """Extracts XML namespaces from document.xml inside a DOCX file."""
     namespaces = {}
-    print("Starting namespace extraction...")
+    print("Extracting namespaces from DOCX...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             for event, elem in ET.iterparse(docx_zip.open('word/document.xml'), events=['start-ns']):
@@ -39,18 +39,15 @@ def extract_alt_text_from_docx(docx_path):
     mapping the image's 'name' (as defined in <wp:docPr>) to its alt text.
     """
     alt_texts = {}
-    print("Starting extraction of alternative text from DOCX...")
+    print("Extracting alt texts from DOCX...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             xml_content = docx_zip.read('word/document.xml')
             tree = ET.ElementTree(ET.fromstring(xml_content))
             root = tree.getroot()
-
-            # Get namespaces dynamically
             namespaces = get_namespaces(docx_path)
             wp_ns = namespaces.get('wp', 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing')
-
-            print("Extracting alt texts from <wp:docPr> elements...")
+            print("Processing <wp:docPr> elements...")
             for docPr in root.findall(f'.//{{{wp_ns}}}docPr'):
                 alt_text = docPr.attrib.get('descr', '').strip()
                 image_name = docPr.attrib.get('name', '').strip()
@@ -59,10 +56,8 @@ def extract_alt_text_from_docx(docx_path):
                     print(f"  Mapped '{image_name}' → '{alt_text}'")
                 else:
                     print(f"  ⚠ Skipping element, missing alt text or name: {docPr.attrib}")
-
     except Exception as e:
         print(f"⚠ Warning: Failed to extract alt text from DOCX - {e}")
-
     if not alt_texts:
         print("❌ No alt texts were extracted.")
     else:
@@ -76,12 +71,9 @@ def optimize_html(html_file, alt_texts):
     print("Starting HTML optimization...")
     if not html_file.lower().endswith(".html"):
         return f"❌ Error: The provided file is not an HTML file: {html_file}"
-
     try:
         with open(html_file, "r", encoding="utf-8", errors="ignore") as file:
             html_content = file.read()
-
-        # Inject responsive meta tags, Bootstrap CSS, and custom CSS in the <head> section
         responsive_head = """
 <head>
     <meta charset="UTF-8">
@@ -107,7 +99,6 @@ def optimize_html(html_file, alt_texts):
       .table-responsive { overflow-x: auto; }
       footer { margin-top: var(--spacing-base); padding: var(--spacing-base); background-color: #f8f9fa; text-align: center; font-size: clamp(0.75rem, 1vw, 1rem); }
     </style>
-    <!-- Google Analytics Tag (if needed) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
     <script defer>
         window.dataLayer = window.dataLayer || [];
@@ -118,15 +109,9 @@ def optimize_html(html_file, alt_texts):
 </head>
         """
         html_content = re.sub(r'<head>.*?</head>', responsive_head, html_content, flags=re.DOTALL)
-
-        # Wrap body content in a Bootstrap container if not already wrapped
         if not re.search(r'<body[^>]*class="[^"]*container[^"]*"', html_content):
             html_content = re.sub(r'<body', '<body class="container"', html_content)
-
-        # Remove fixed width and height attributes from <img> tags
         html_content = re.sub(r'\s*(width|height)="[^"]*"', '', html_content)
-
-        # Update image tags: add alt attribute and Bootstrap responsive classes
         def add_alt_attribute(match):
             img_tag = match.group(0)
             name_match = re.search(r'name="([^"]+)"', img_tag)
@@ -156,7 +141,6 @@ def optimize_html(html_file, alt_texts):
             else:
                 img_tag = re.sub(r'<img', '<img class="img-fluid"', img_tag)
             return img_tag
-
         html_content = re.sub(r'<img[^>]+>', add_alt_attribute, html_content)
         html_content = re.sub(r'(<table[^>]*>.*?</table>)', r'<div class="table-responsive">\1</div>', html_content, flags=re.DOTALL)
         footer_banner = """
@@ -166,12 +150,10 @@ def optimize_html(html_file, alt_texts):
         </footer>
         """
         html_content = re.sub(r'</body>', footer_banner + '</body>', html_content, flags=re.IGNORECASE)
-        
         with open(html_file, "w", encoding="utf-8") as file:
             file.write(html_content)
         print("HTML optimization completed.")
         return html_file
-
     except Exception as e:
         error_message = f"❌ Error processing HTML file: {e}"
         print(error_message)
@@ -181,7 +163,7 @@ def extract_images_from_docx(docx_path, destination_folder):
     """
     Extracts images from the DOCX file's word/media folder into destination_folder.
     """
-    print("Starting image extraction...")
+    print("Extracting images from DOCX...")
     try:
         with zipfile.ZipFile(docx_path, 'r') as docx_zip:
             for file in docx_zip.namelist():
@@ -204,11 +186,7 @@ def package_conversion(docx_path, responsive_html_file):
     output_dir = os.path.dirname(responsive_html_file)
     images_dir = os.path.join(output_dir, "images")
     os.makedirs(images_dir, exist_ok=True)
-    
-    # Extract images from the DOCX file
     extract_images_from_docx(docx_path, images_dir)
-    
-    # Update the HTML file to reference the 'images' folder for image sources
     with open(responsive_html_file, "r", encoding="utf-8") as f:
         html_content = f.read()
     updated_html = re.sub(
@@ -218,13 +196,9 @@ def package_conversion(docx_path, responsive_html_file):
     )
     with open(responsive_html_file, "w", encoding="utf-8") as f:
         f.write(updated_html)
-    
-    # Create a ZIP file containing the HTML and the images folder
     zip_filename = responsive_html_file.replace("_responsive.html", "_package.zip")
     with zipfile.ZipFile(zip_filename, 'w') as zipf:
-        # Add the responsive HTML file
         zipf.write(responsive_html_file, arcname=os.path.basename(responsive_html_file))
-        # Add images folder
         for root, _, files in os.walk(images_dir):
             for file in files:
                 full_path = os.path.join(root, file)
@@ -256,16 +230,15 @@ def convert_docx_to_html(docx_path):
     ]
     
     try:
-        print("Running LibreOffice for conversion...")
+        print("Running LibreOffice conversion...")
         subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print("LibreOffice conversion completed.")
         html_file = os.path.join(output_dir, os.path.basename(docx_path).replace(".docx", ".html"))
         if os.path.exists(html_file):
             optimized_html_file = optimize_html(html_file, alt_texts)
-            # Package the HTML and images into a zip file
             package_file = package_conversion(docx_path, optimized_html_file)
             print("DOCX conversion and packaging completed successfully.")
-            return package_file  # Return the path to the zip file
+            return package_file
         else:
             error_message = "❌ Error: Conversion failed. HTML file not created."
             print(error_message)
@@ -333,7 +306,6 @@ def convert():
             return redirect(url_for("index"))
         else:
             print(f"Conversion package created: {result}")
-            # Send the resulting zip file for download
             return send_file(result, as_attachment=True)
     else:
         flash("Invalid file format. Please upload a DOCX file.")
