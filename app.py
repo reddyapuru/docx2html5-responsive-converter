@@ -69,7 +69,16 @@ RESULT_PAGE = """
       .btn:hover {
           background-color: #45a049;
       }
-    </style>
+     </style>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+<script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8LYBP9EDY');
+</script>
   </head>
 <body>
   <div style="max-width: 800px; margin: 40px auto; text-align: center;">
@@ -81,9 +90,13 @@ RESULT_PAGE = """
       <a class="btn" style="padding: 12px 24px; font-size: 20px;" href="{{ url_for('clear') }}">Clear and Start Over</a>
     </div>
   </div>
+  <footer style="margin-top: 40px; text-align: center; font-size: 14px; color: #666;">
+    <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
+    <p>&copy; 2025</p>
+  </footer>
 </body>
-
 </html>
+
 """
 
 @app.route("/", methods=["GET", "POST"])
