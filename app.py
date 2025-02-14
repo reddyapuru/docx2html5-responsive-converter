@@ -1,45 +1,76 @@
+from flask import Flask, request, send_file, render_template_string, flash, redirect, url_for
+from werkzeug.utils import secure_filename
 import os
 import tempfile
-import streamlit as st
-from werkzeug.utils import secure_filename
 
-# Import functions from the libre-docx2html5.py file.
-# Make sure the file is named exactly "libre-docx2html5.py" and is in the same directory.
-from libre_docx2html5 import convert_docx_to_html, allowed_file
+# Import your conversion function from libre_docx2html5.py
+from libre_docx2html5 import convert_docx_to_html
 
-# Streamlit UI layout
-st.title("DOCX to Responsive HTML Converter")
-st.write("Upload a DOCX file to convert it to responsive HTML along with its images packaged in a ZIP file.")
+app = Flask(__name__)
+app.secret_key = "supersecretkey"
 
-# File uploader for DOCX files
-uploaded_file = st.file_uploader("Choose a DOCX file", type=["docx"])
+ALLOWED_EXTENSIONS = {"docx"}
 
-if uploaded_file is not None:
-    # Check if the file is allowed
-    if allowed_file(uploaded_file.name):
-        # Save the uploaded file to a temporary directory
-        upload_dir = tempfile.mkdtemp()
-        file_path = os.path.join(upload_dir, secure_filename(uploaded_file.name))
-        with open(file_path, "wb") as f:
-            f.write(uploaded_file.getbuffer())
-        st.write(f"File saved to: {file_path}")
-        
-        # Convert the DOCX file using the function from libre-docx2html5.py
-        package_path = convert_docx_to_html(file_path)
-        
-        # Check if conversion returned an error message
-        if package_path.startswith("❌"):
-            st.error(package_path)
-        else:
-            st.success("Conversion completed successfully!")
-            # Read the resulting ZIP file and create a download button
-            with open(package_path, "rb") as f:
-                zip_data = f.read()
-            st.download_button(
-                label="Download Conversion Package",
-                data=zip_data,
-                file_name=os.path.basename(package_path),
-                mime="application/zip"
-            )
-    else:
-        st.error("Invalid file format. Please upload a DOCX file.")
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+UPLOAD_FORM = """
+<!doctype html>
+<html>
+  <head>
+    <title>DOCX to Responsive HTML Converter</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .upload-btn {
+          font-size: 20px;
+          padding: 12px 24px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+      .upload-btn:hover {
+          background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOCX to Responsive HTML Converter</h1>
+    <p>Upload a DOCX file to convert it to responsive HTML along with its images packaged in a ZIP file. (The package will be deleted automatically after 10 minutes.)</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="docx_file" accept=".docx" required>
+      <br><br>
+      <input type="submit" value="Convert" class="upload-btn">
+    </form>
+  </body>
+</html>
+"""
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        if "docx_file" not in request.files:
+            flash("No file part")
+            return redirect(request.url)
+        file = request.files["docx_file"]
+        if file.filename == "":
+            flash("No selected file")
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            # Save the uploaded file to a temporary directory
+            upload_dir = tempfile.mkdtemp()
+            file_path = os.path.join(upload_dir, secure_filename(file.filename))
+            file.save(file_path)
+            # Convert the DOCX file using your conversion function.
+            zip_path = convert_docx_to_html(file_path)
+            if zip_path.startswith("❌"):
+                flash(zip_path)
+                return redirect(request.url)
+            else:
+                # send_file sets appropriate headers so the browser immediately downloads the file.
+                return send_file(zip_path, as_attachment=True, download_name=os.path.basename(zip_path))
+    return render_template_string(UPLOAD_FORM)
+
+if __name__ == "__main__":
+    app.run(debug=True)
