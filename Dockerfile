@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 # Update and install LibreOffice without sudo (the container runs as root)
 RUN apt-get update && apt-get install -y libreoffice && rm -rf /var/lib/apt/lists/*
-
+pip install -r requirements.txt
 WORKDIR /app
 COPY . /app
 
