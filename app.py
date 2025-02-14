@@ -4,6 +4,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 import subprocess
 import tempfile
+from bs4 import BeautifulSoup  # Make sure to install beautifulsoup4
 
 from flask import Flask, request, render_template_string, send_file, flash, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -66,93 +67,78 @@ def extract_alt_text_from_docx(docx_path):
 
 def optimize_html(html_file, alt_texts):
     """
-    Cleans and optimizes the LibreOffice-generated HTML for responsiveness.
+    Cleans and optimizes the LibreOffice-generated HTML for responsiveness,
+    using BeautifulSoup to remove extraneous markup.
     """
-    print("Starting HTML optimization...")
+    print("Starting HTML optimization with BeautifulSoup...")
     if not html_file.lower().endswith(".html"):
         return f"❌ Error: The provided file is not an HTML file: {html_file}"
     try:
         with open(html_file, "r", encoding="utf-8", errors="ignore") as file:
             html_content = file.read()
-        responsive_head = """
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-      /* Custom CSS styles */
-      :root {
-        --font-base: clamp(0.75rem, 1vw + 0.75rem, 1.25rem);
-        --font-headline: clamp(1.75rem, 4vw, 2.5rem);
-        --spacing-base: clamp(0.5rem, 1vw, 2rem);
-        --line-height-base: 1.5;
-        --vertical-spacing: clamp(1.3, 1vw + 1.3, 1.7);
-        --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        --font-secondary: "Segoe UI Black", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      }
-      html { font-size: 100%; line-height: var(--line-height-base); font-family: var(--font-primary); }
-      header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.1); padding: calc(var(--spacing-base) * 1.5); text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-      header h1 { margin: 0; font-family: var(--font-secondary); font-size: var(--font-headline); font-weight: 900; letter-spacing: -0.5pt; line-height: 1.3; }
-      body { padding: var(--spacing-base); }
-      img { max-width: 100% !important; height: auto !important; display: block; }
-      .img-line { width: 100% !important; height: auto !important; }
-      .table-responsive { overflow-x: auto; }
-      footer { margin-top: var(--spacing-base); padding: var(--spacing-base); background-color: #f8f9fa; text-align: center; font-size: clamp(0.75rem, 1vw, 1rem); }
-    </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
-    <script defer>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-P8LYBP9EDY');
-    </script>
-</head>
-        """
-        html_content = re.sub(r'<head>.*?</head>', responsive_head, html_content, flags=re.DOTALL)
-        if not re.search(r'<body[^>]*class="[^"]*container[^"]*"', html_content):
-            html_content = re.sub(r'<body', '<body class="container"', html_content)
-        html_content = re.sub(r'\s*(width|height)="[^"]*"', '', html_content)
-        def add_alt_attribute(match):
-            img_tag = match.group(0)
-            name_match = re.search(r'name="([^"]+)"', img_tag)
-            src_match = re.search(r'src="([^"]+)"', img_tag)
-            image_description = "Illustration from the document"
-            if name_match:
-                image_name = name_match.group(1)
-                if image_name in alt_texts:
-                    image_description = alt_texts[image_name]
-                if image_name.lower().startswith("shape"):
-                    if 'class=' in img_tag:
-                        if 'img-line' not in img_tag:
-                            img_tag = re.sub(r'class="([^"]+)"', lambda m: f'class="{m.group(1)} img-line"', img_tag)
-                    else:
-                        img_tag = re.sub(r'<img', '<img class="img-line"', img_tag)
-            elif src_match:
-                image_filename = os.path.basename(src_match.group(1))
-                if image_filename in alt_texts:
-                    image_description = alt_texts[image_filename]
-            if not re.search(r'alt="[^"]*"', img_tag):
-                img_tag = re.sub(r'<img', f'<img alt="{image_description}"', img_tag)
-            else:
-                img_tag = re.sub(r'alt="[^"]*"', f'alt="{image_description}"', img_tag)
-            if 'class=' in img_tag:
-                if 'img-fluid' not in img_tag:
-                    img_tag = re.sub(r'class="([^"]+)"', lambda m: f'class="{m.group(1)} img-fluid"', img_tag)
-            else:
-                img_tag = re.sub(r'<img', '<img class="img-fluid"', img_tag)
-            return img_tag
-        html_content = re.sub(r'<img[^>]+>', add_alt_attribute, html_content)
-        html_content = re.sub(r'(<table[^>]*>.*?</table>)', r'<div class="table-responsive">\1</div>', html_content, flags=re.DOTALL)
-        footer_banner = """
-        <footer>
-            <hr>
-            <p>© 2025 www.latest2all.com</p>
-        </footer>
-        """
-        html_content = re.sub(r'</body>', footer_banner + '</body>', html_content, flags=re.IGNORECASE)
+
+        # Parse the HTML content with BeautifulSoup
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        # Remove extraneous inline styles or tags (customize as needed)
+        # Example: unwrap <span> tags with style attributes (adjust this cleanup per your needs)
+        for span in soup.find_all("span", style=True):
+            span.unwrap()
+
+        # Rebuild the head tag with your responsive settings
+        new_head = BeautifulSoup("""
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                <style>
+                    :root {
+                        --font-base: clamp(0.75rem, 1vw + 0.75rem, 1.25rem);
+                        --font-headline: clamp(1.75rem, 4vw, 2.5rem);
+                        --spacing-base: clamp(0.5rem, 1vw, 2rem);
+                        --line-height-base: 1.5;
+                        --vertical-spacing: clamp(1.3, 1vw + 1.3, 1.7);
+                        --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                        --font-secondary: "Segoe UI Black", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                    }
+                    html { font-size: 100%; line-height: var(--line-height-base); font-family: var(--font-primary); }
+                    header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.1); padding: calc(var(--spacing-base) * 1.5); text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+                    header h1 { margin: 0; font-family: var(--font-secondary); font-size: var(--font-headline); font-weight: 900; letter-spacing: -0.5pt; line-height: 1.3; }
+                    body { padding: var(--spacing-base); }
+                    img { max-width: 100% !important; height: auto !important; display: block; }
+                    .img-line { width: 100% !important; height: auto !important; }
+                    .table-responsive { overflow-x: auto; }
+                    footer { margin-top: var(--spacing-base); padding: var(--spacing-base); background-color: #f8f9fa; text-align: center; font-size: clamp(0.75rem, 1vw, 1rem); }
+                </style>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+                <script defer>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-P8LYBP9EDY');
+                </script>
+            </head>
+        """, "html.parser")
+        # Replace the current head with the new one
+        if soup.head:
+            soup.head.replace_with(new_head.head)
+        else:
+            soup.insert(0, new_head.head)
+
+        # Ensure the body has the "container" class
+        if soup.body:
+            body_class = soup.body.get("class", [])
+            if "container" not in body_class:
+                body_class.append("container")
+                soup.body["class"] = body_class
+
+        # Convert the soup back to a string
+        updated_html = str(soup)
+
+        # Save the optimized HTML back to file
         with open(html_file, "w", encoding="utf-8") as file:
-            file.write(html_content)
-        print("HTML optimization completed.")
+            file.write(updated_html)
+        print("HTML optimization completed with BeautifulSoup.")
         return html_file
     except Exception as e:
         error_message = f"❌ Error processing HTML file: {e}"
