@@ -71,14 +71,18 @@ RESULT_PAGE = """
       }
     </style>
   </head>
-  <body>
-    <h1>Conversion Successful!</h1>
-    <p>Conversion Time: {{ conversion_time }} seconds.</p>
-    <p>Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
-    <a class="btn" href="{{ url_for('download_file') }}">Download ZIP Package</a>
-    <br><br>
-    <a class="btn" href="{{ url_for('clear') }}">Clear and Start Over</a>
-  </body>
+<body>
+  <div style="max-width: 800px; margin: 40px auto; text-align: center;">
+    <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
+    <p style="margin-bottom: 20px;">Conversion Time: {{ conversion_time }} seconds.</p>
+    <p style="margin-bottom: 30px;">Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
+    <div>
+      <a class="btn" style="margin-right: 20px; padding: 12px 24px; font-size: 20px;" href="{{ url_for('download_file') }}">Download ZIP Package</a>
+      <a class="btn" style="padding: 12px 24px; font-size: 20px;" href="{{ url_for('clear') }}">Clear and Start Over</a>
+    </div>
+  </div>
+</body>
+
 </html>
 """
 
