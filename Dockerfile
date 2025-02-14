@@ -1,21 +1,26 @@
 FROM python:3.9-slim
 
-# Install system dependencies: LibreOffice and libraries needed by lxml
+# Update and install LibreOffice (runs as root)
+# Install system dependencies: LibreOffice and packages needed by lxml
 RUN apt-get update && apt-get install -y \
     libreoffice \
     libxml2-dev \
-    libxslt-dev \
-    zlib1g-dev \
+    libxslt1-dev \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy the requirements file first for caching
+# Copy only the requirements first
 COPY requirements.txt /app/
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
+# Copy the rest of the application code
 COPY . /app
-# Use the default command to start your Streamlit app
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.enableCORS=false"]
+# For Linux deployment, set the LibreOffice path to the Linux executable.
+ENV LIBREOFFICE_PATH=/usr/bin/libreoffice
+CMD ["python", "app.py"]
+
