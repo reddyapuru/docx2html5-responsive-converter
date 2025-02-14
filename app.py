@@ -15,6 +15,7 @@ ALLOWED_EXTENSIONS = {"docx"}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# HTML template for the upload form with a "please wait" overlay
 UPLOAD_FORM = """
 <!doctype html>
 <html>
@@ -34,49 +35,84 @@ UPLOAD_FORM = """
       .upload-btn:hover {
           background-color: #45a049;
       }
+      #loading {
+          display: none;
+          text-align: center;
+          font-size: 20px;
+          color: #555;
+          margin-top: 20px;
+      }
+      header {
+          background-color: #f5f5f5;
+          padding: 20px 40px;
+          text-align: center;
+          border-bottom: 2px solid #ccc;
+      }
+      header h1 {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+      }
+      header p {
+          font-size: 1.2rem;
+          color: #333;
+          margin-bottom: 15px;
+      }
+      header a {
+          color: #007BFF;
+          text-decoration: none;
+      }
+      header a:hover {
+          text-decoration: underline;
+      }
     </style>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
-<script defer>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-P8LYBP9EDY');
-
-
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+    <script defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P8LYBP9EDY');
+    </script>
+    <script>
+      function showLoading() {
+          document.getElementById('loading').style.display = 'block';
+      }
+    </script>
   </head>
   <body>
-<header style="background-color: #f5f5f5; padding: 20px 40px; text-align: center; border-bottom: 2px solid #ccc;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Welcome to Latest2All DOCX2HTML5 Converter</h1>
-  <p style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">
-    Effortlessly convert your DOCX files into responsive HTML.
-  </p>
-  <p style="font-size: 1rem; color: #555; max-width: 800px; margin: 0 auto;">
-    To use this tool, simply upload your DOCX file using the form below. Our converter will extract and optimize the content—including images—and package everything into a ZIP file ready for download. Your package will be available immediately and will be automatically deleted after a short period.
-    <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
-    <p>&copy; 2025</p>
-  </p>
-</header>
+    <header>
+      <h1>Welcome to Latest2All DOCX2HTML5 Converter</h1>
+      <p>Effortlessly convert your DOCX files into responsive HTML with images.</p>
+      <p>
+        To use this tool, simply upload your DOCX file below. The converter extracts and optimizes the content—including images—and packages everything into a ZIP file ready for download. 
+        Your package will be available immediately and will be automatically deleted after 10 minutes.
+      </p>
+      <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a> &copy; 2025</p>
+    </header>
     <h1>DOCX to Responsive HTML Converter</h1>
-    <p>Upload a DOCX file to convert it to responsive HTML along with its images packaged in a ZIP file.
-    <br>(The package will be deleted automatically after 10 minutes.)</p>
-    <form method="post" enctype="multipart/form-data">
+    <p>
+      Convert your DOCX files into fully responsive HTML with images packaged in a ZIP file.
+      <br>
+      (Your files are processed securely and will be automatically deleted after 10 minutes.)
+    </p>
+    <form method="post" enctype="multipart/form-data" onsubmit="showLoading()">
       <input type="file" name="docx_file" accept=".docx" required>
       <br><br>
       <input type="submit" value="Convert" class="upload-btn">
     </form>
+    <div id="loading">Conversion in progress... Please wait.</div>
   </body>
 </html>
 """
 
+# HTML template for the result page
 RESULT_PAGE = """
 <!doctype html>
 <html>
   <head>
     <title>Conversion Result</title>
     <style>
-      body { font-family: Arial, sans-serif; margin: 40px; }
+      body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
       .btn {
           font-size: 20px;
           padding: 12px 24px;
@@ -86,40 +122,43 @@ RESULT_PAGE = """
           border-radius: 4px;
           cursor: pointer;
           text-decoration: none;
+          margin: 10px;
       }
       .btn:hover {
           background-color: #45a049;
       }
-     </style>
-
+      footer {
+          margin-top: 40px;
+          text-align: center;
+          font-size: 14px;
+          color: #666;
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
-<script defer>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-P8LYBP9EDY');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+    <script defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P8LYBP9EDY');
+    </script>
   </head>
-
-
-<body>
-  <div style="max-width: 800px; margin: 40px auto; text-align: center;">
-    <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
-    <p style="margin-bottom: 20px;">Conversion Time: {{ conversion_time }} seconds.</p>
-    <p style="margin-bottom: 30px;">Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
-    <div>
-      <a class="btn" style="margin-right: 20px; padding: 12px 24px; font-size: 20px;" href="{{ url_for('download_file') }}">Download ZIP Package</a>
-      <a class="btn" style="padding: 12px 24px; font-size: 20px;" href="{{ url_for('clear') }}">Clear and Start Over</a>
+  <body>
+    <div style="max-width: 800px; margin: 40px auto;">
+      <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
+      <p style="margin-bottom: 20px;">Conversion Time: {{ conversion_time }} seconds.</p>
+      <p style="margin-bottom: 30px;">Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
+      <div>
+        <a class="btn" href="{{ url_for('download_file') }}">Download ZIP Package</a>
+        <a class="btn" href="{{ url_for('clear') }}">Clear and Start Over</a>
+      </div>
     </div>
-  </div>
-  <footer style="margin-top: 40px; text-align: center; font-size: 14px; color: #666;">
-    <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
-    <p>&copy; 2025</p>
-  </footer>
-</body>
+    <footer>
+      <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
+      <p>&copy; 2025</p>
+    </footer>
+  </body>
 </html>
-
 """
 
 @app.route("/", methods=["GET", "POST"])
@@ -143,7 +182,7 @@ def index():
             zip_path = convert_docx_to_html(file_path)
             end_time = datetime.datetime.now()
             conversion_time = (end_time - start_time).total_seconds()
-
+            
             if zip_path.startswith("❌"):
                 flash(zip_path)
                 return redirect(request.url)
