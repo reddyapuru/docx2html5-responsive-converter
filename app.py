@@ -217,18 +217,15 @@ def convert_docx_to_html(docx_path):
         error_message = f"❌ Error: File '{docx_path}' not found."
         print(error_message)
         return error_message
-
     if not os.path.exists(LIBREOFFICE_PATH):
         error_message = f"❌ Error: LibreOffice not found at '{LIBREOFFICE_PATH}'."
         print(error_message)
         return error_message
-
     output_dir = os.path.dirname(docx_path)
     alt_texts = extract_alt_text_from_docx(docx_path)
     command = [
         LIBREOFFICE_PATH, "--headless", "--convert-to", "html", "--outdir", output_dir, docx_path
     ]
-    
     try:
         print("Running LibreOffice conversion...")
         subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -287,19 +284,16 @@ def convert():
     if "docx_file" not in request.files:
         flash("No file part")
         return redirect(url_for("index"))
-    
     file = request.files["docx_file"]
     if file.filename == "":
         flash("No file selected")
         return redirect(url_for("index"))
-    
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         upload_dir = tempfile.mkdtemp()
         file_path = os.path.join(upload_dir, filename)
         file.save(file_path)
         print(f"File saved to: {file_path}")
-
         result = convert_docx_to_html(file_path)
         if result.startswith("❌"):
             flash(result)
