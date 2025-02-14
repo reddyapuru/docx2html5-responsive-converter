@@ -245,8 +245,8 @@ def convert_docx_to_html(docx_path):
                     zipf.write(full_path, arcname=arcname)
         print(f"Packaging completed. Package file: {zip_filename}")
 
-        # Schedule deletion of the entire output folder (including the package and input file) after 10 minutes
-        def schedule_deletion(folder_path, input_file, delay=600):
+        # Schedule deletion of the entire output folder (including the package and input file) after 2 minutes
+        def schedule_deletion(folder_path, input_file, delay=120):
             print(f"Scheduling deletion of all files in {folder_path} and input file {input_file} in {delay} seconds...")
             time.sleep(delay)
             if os.path.exists(folder_path):
@@ -255,15 +255,17 @@ def convert_docx_to_html(docx_path):
             if os.path.exists(input_file):
                 os.remove(input_file)
                 print(f"Input file {input_file} deleted after {delay} seconds.")
-        
+
+        # Start the deletion thread without joining it
         deletion_thread = threading.Thread(target=schedule_deletion, args=(output_folder, docx_path), daemon=True)
         deletion_thread.start()
-        #deletion_thread.join()
+
         return zip_filename
     else:
         error_message = "❌ Error: Conversion failed. HTML file not created."
         print(error_message)
         return error_message
+
 
 # For command-line usage (if needed)
 if __name__ == "__main__":
