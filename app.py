@@ -37,6 +37,15 @@ UPLOAD_FORM = """
     </style>
   </head>
   <body>
+<header style="background-color: #f5f5f5; padding: 20px 40px; text-align: center; border-bottom: 2px solid #ccc;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Welcome to Latest2All DOCX2HTML5 Converter</h1>
+  <p style="font-size: 1.2rem; color: #333; margin-bottom: 15px;">
+    Effortlessly convert your DOCX files into responsive HTML.
+  </p>
+  <p style="font-size: 1rem; color: #555; max-width: 800px; margin: 0 auto;">
+    To use this tool, simply upload your DOCX file using the form below. Our converter will extract and optimize the content—including images—and package everything into a ZIP file ready for download. Your package will be available immediately and will be automatically deleted after a short period.
+  </p>
+</header>
     <h1>DOCX to Responsive HTML Converter</h1>
     <p>Upload a DOCX file to convert it to responsive HTML along with its images packaged in a ZIP file.
     <br>(The package will be deleted automatically after 10 minutes.)</p>
@@ -80,6 +89,8 @@ RESULT_PAGE = """
   gtag('config', 'G-P8LYBP9EDY');
 </script>
   </head>
+
+
 <body>
   <div style="max-width: 800px; margin: 40px auto; text-align: center;">
     <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
