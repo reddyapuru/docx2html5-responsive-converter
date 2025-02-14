@@ -7,6 +7,7 @@ import tempfile
 from bs4 import BeautifulSoup  # Make sure to install beautifulsoup4
 
 import streamlit as st
+from werkzeug.utils import secure_filename
 
 # Hardcoded path for LibreOffice CLI on Linux
 LIBREOFFICE_PATH = r"/usr/bin/libreoffice"
@@ -72,12 +73,12 @@ def optimize_html(html_file, alt_texts):
     try:
         with open(html_file, "r", encoding="utf-8", errors="ignore") as file:
             html_content = file.read()
-
         soup = BeautifulSoup(html_content, "html.parser")
-        # Remove extraneous inline styles or tags (customize as needed)
+        # Example cleanup: unwrap <span> tags with inline styles
         for span in soup.find_all("span", style=True):
             span.unwrap()
 
+        # Rebuild the head tag with your responsive settings
         new_head = BeautifulSoup("""
             <head>
                 <meta charset="UTF-8">
@@ -115,15 +116,12 @@ def optimize_html(html_file, alt_texts):
             soup.head.replace_with(new_head.head)
         else:
             soup.insert(0, new_head.head)
-
         if soup.body:
             body_class = soup.body.get("class", [])
             if "container" not in body_class:
                 body_class.append("container")
                 soup.body["class"] = body_class
-
         updated_html = str(soup)
-
         with open(html_file, "w", encoding="utf-8") as file:
             file.write(updated_html)
         st.text("HTML optimization completed with BeautifulSoup.")
