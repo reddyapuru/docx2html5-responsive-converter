@@ -17,5 +17,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . /app
 
-# Use the default command to start your app
-CMD ["python", "app.py"]
+# Use the default command to start your Streamlit app
+CMD ["streamlit", "run", "app.py", "--server.port=8000", "--server.enableCORS=false"]
