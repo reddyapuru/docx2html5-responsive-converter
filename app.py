@@ -35,6 +35,14 @@ UPLOAD_FORM = """
           background-color: #45a049;
       }
     </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8LYBP9EDY"></script>
+<script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8LYBP9EDY');
+</script>
   </head>
   <body>
 <header style="background-color: #f5f5f5; padding: 20px 40px; text-align: center; border-bottom: 2px solid #ccc;">
