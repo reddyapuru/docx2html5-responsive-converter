@@ -42,6 +42,8 @@ UPLOAD_FORM = """
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-P8LYBP9EDY');
+
+
 </script>
   </head>
   <body>
@@ -52,6 +54,8 @@ UPLOAD_FORM = """
   </p>
   <p style="font-size: 1rem; color: #555; max-width: 800px; margin: 0 auto;">
     To use this tool, simply upload your DOCX file using the form below. Our converter will extract and optimize the content—including images—and package everything into a ZIP file ready for download. Your package will be available immediately and will be automatically deleted after a short period.
+    <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
+    <p>&copy; 2025</p>
   </p>
 </header>
     <h1>DOCX to Responsive HTML Converter</h1>
