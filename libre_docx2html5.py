@@ -245,8 +245,8 @@ def convert_docx_to_html(docx_path):
                     zipf.write(full_path, arcname=arcname)
         print(f"Packaging completed. Package file: {zip_filename}")
 
-        # Schedule deletion of the entire output folder (including the package and input file) after 2 minutes
-        def schedule_deletion(folder_path, input_file, delay=120):
+        # Schedule deletion of the entire output folder (including the package and input file) after 10 minutes
+        def schedule_deletion(folder_path, input_file, delay=600):
             print(f"Scheduling deletion of all files in {folder_path} and input file {input_file} in {delay} seconds...")
             time.sleep(delay)
             if os.path.exists(folder_path):
