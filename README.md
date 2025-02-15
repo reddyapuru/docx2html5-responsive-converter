@@ -144,7 +144,7 @@ You are free to use, modify, and distribute this software under the terms of the
 For more details, please see the LICENSE file or visit [GNU GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ---
-
+For comprehensive details on our exclusive promo codes and engaging quizzes, be sure to explore our detailed guides on our [GitHub Wiki](https://github.com/reddyapuru/e-book-code/wiki) and visit [Latest2All](https://www.latest2all.com). Discover insider tips, step-by-step instructions, and the latest updates to maximize your experience with our innovative tools.
 ## Contact
 
 For questions, feedback, or support, please open an issue in this repository or contact the maintainer:
