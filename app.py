@@ -144,15 +144,16 @@ RESULT_PAGE = """
     </script>
   </head>
   <body>
-    <div style="max-width: 800px; margin: 40px auto;">
-      <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
-      <p style="margin-bottom: 20px;">Conversion Time: {{ conversion_time }} seconds.</p>
-      <p style="margin-bottom: 30px;">Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
-      <div>
-        <a class="btn" href="{{ url_for('download_file') }}">Download ZIP Package</a>
-        <a class="btn" href="{{ url_for('clear') }}">Clear and Start Over</a>
-      </div>
-    </div>
+<div style="max-width: 800px; margin: 40px auto;">
+  <h1 style="margin-bottom: 30px;">Conversion Successful!</h1>
+  <p style="margin-bottom: 20px;">Conversion Time: {{ conversion_time }} seconds.</p>
+  <p style="margin-bottom: 30px;">Your package is ready for download. (It will be deleted automatically after 10 minutes.)</p>
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <a class="btn" href="{{ url_for('download_file') }}" style="display: block;">Download ZIP Package</a>
+    <a class="btn" href="{{ url_for('clear') }}" style="display: block;">Clear and Start Over</a>
+  </div>
+</div>
+
     <footer>
       <p>docx2html5 online responsive converter sponsored by <a href="https://www.latest2all.com" target="_blank">www.latest2all.com</a></p>
       <p>&copy; 2025</p>
